@@ -1,0 +1,2 @@
+# update figures:
+rsync -nav ~/Documents/research_paper_writing/LSST-Incremental-Templates-Analysis-Paper/results/n_visits_4/* . --include="*one_snap_v4_0*" --include '*/' --exclude="*"
