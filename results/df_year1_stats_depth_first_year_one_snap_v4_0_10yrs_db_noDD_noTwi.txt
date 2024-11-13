@@ -1,7 +1,6 @@
 \begin{tabular}{lrrrr}
 \toprule
-filter & med(5-$\sigma$ depth) & std(5-$\sigma$ depth) & min(5-$\sigma$ depth) & max(5-$\sigma$ depth) \\
-& (mag) & (mag) & (mag) & (mag) \\ 
+filter & \texttt{med}(5-$\sigma$ depth) & \texttt{std}(5-$\sigma$ depth) & \texttt{min}(5-$\sigma$ depth) & \texttt{max}(5-$\sigma$ depth) \\
 \midrule
 $u$ & 23.497 & 0.353 & 20.523 & 24.515 \\
 $g$ & 24.461 & 0.549 & 21.704 & 25.589 \\
