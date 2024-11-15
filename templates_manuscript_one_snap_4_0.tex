@@ -111,6 +111,13 @@
 \author[0000-0003-3240-6497]{Steven R. Chesley}
 \affiliation{Jet Propulsion Laboratory, California Institute of Technology, 4800 Oak Grove Dr., Pasadena, CA 91109, USA}
 
+\author[0000-0002-8418-4809]{Grigori Fedorets}
+\affiliation{Finnish Centre for Astronomy with ESO, University of Turku,
+FI-20014 Turku, Finland}
+\affiliation{Department of Physics, University of Helsinki, P.O. Box 64,
+00014
+Helsinki, Finland} 
+
 \author[0000-0001-6680-6558]{Wesley C. Fraser}
 \affiliation{Herzberg Astronomy and Astrophysics Research Centre, National Research Council, 5071 W. Saanich Rd. Victoria BC, V9E 2E7, Canada}
 
@@ -137,21 +144,21 @@
  % pie314271 - Bryce Bolin
 
  % authors to add
- % Grigori Fedorets
  % Cyrielle Opitom
  
 	\begin{abstract}
-	The Vera C. Rubin Observatory is due to commence the \gls*{lsst} at the end of 2025. This ten-year wide-field survey will discover millions of \glspl*{sso} and billions of astrophysical transients.
- Rubin Observatory intends to issue public alerts announcing variable/transient sources detected in each observation within 60\ s of the shutter closing. 
-To produce these alerts, and identify detections of \glspl*{sso}, the Rubin Observatory Prompt Processing pipelines require templates of the static night sky to perform difference imaging. 
-During the first year of the LSST, templates must be generated as the survey progresses, using any available images, otherwise alerts cannot be generated. 
-The incremental template generation strategy has not yet been finalized, so we explore Year 1 template generation strategies using the Metric Analysis Framework and a simulation of the survey cadence (\baselinefull), to better inform options for survey strategy.  
-Focusing on \gls*{sso} alerts, we have assessed the effects of generating templates every 3, 7, 14, and 28 days when at least four images of sufficient quality are available for $\geq90\%$ of the visit. 
-We predict that \gls*{sso} discoveries will begin approximately two months after the start of the survey. 
+	The Vera C. Rubin Observatory is due to commence the \gls*{lsst} at the end of 2025. 
+    This ten-year wide-field survey will detect variable/transient sources, issuing public alerts within 60\ s of image readout. % DMTN-102
+ % Rubin Observatory intends to issue public alerts announcing variable/transient sources detected in each observation within 60\ s of image readout. 
+To produce alerts, and identify \glspl*{sso}, the processing pipelines require templates of the static sky to perform difference imaging. 
+During the first year of the LSST, templates must be generated as the survey progresses, otherwise alerts cannot be generated. 
+The incremental template generation strategy has not been finalized, therefore we use the Metric Analysis Framework and a simulation of the survey cadence (\baselinefull) to explore template generation in Year 1.  
+We have assessed the effects of generating templates over timescales of days-weeks, when at least four images of sufficient quality are available for $\geq90\%$ of the visit. 
+We predict that \gls*{sso} alerts will begin $\sim 2.5$ months into the survey. 
 % We find that \gls*{sso} discoveries will benefit from early template generation, especially in areas of the sky that are not covered as frequently by the survey, such as the \gls*{nes}, and in less commonly used filters, such as $g$ and $u$-bands. In addition, we find that the lack of templates in the \gls*{nes} has the greatest effect on reducing the number of \gls*{sso} discoveries.
 We find that the ability of the survey to discover and characterise \glspl*{sso} in Year 1 is reduced.
-This is especially true for detections in areas of the sky that are not covered as frequently by the survey, such as the \gls*{nes}, and in less commonly used filters, such as $g$ and $u$-bands.
-In particular, the lack of templates in the \gls*{nes} dominates the loss of \gls*{sso} discoveries; across the whole sky up to 54\% of \glspl*{mba} discoveries are lost whereas up to 74\% of \glspl*{mba} are lost in the \gls*{nes} alone.
+This is especially true for detections in areas of the sky that receive fewer visits, such as the \gls*{nes}, and in less commonly used filters, such as $g$ and $u$-bands.
+The lack of templates in the \gls*{nes} dominates the loss of \gls*{sso} alerts; across the whole sky up to 54\% of \glspl*{mba} real-time discoveries are lost whereas up to 74\% of \glspl*{mba} are lost in the \gls*{nes} alone.
 	\end{abstract}
 	\section{Introduction}
 	\label{sec:introduction}
@@ -198,8 +205,14 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
 	\subsection{Simulated LSST Pointings}
 	In order to investigate the effects of incremental template generation, we make use of the Rubin \maf \citep{2014SPIE.9149E..0BJ} and a simulated \gls*{lsst} survey pointing history generated with the \rubinsim operations simulator.
  This uses the Rubin scheduler, with inputs for the predicted performance of the telescope, optics, and \gls*{lsstcam}, alongside values for Cerro Pach{\'o}n's sky brightness \citep{Yoachim2016}, in addition to simulating realistic periods of downtime for maintenance and engineering work. 
- The \rubinsim operations simulator and Rubin scheduler are presented and reviewed in detail in \cite{2014SPIE.9150E..14C}, \cite{2014SPIE.9150E..15D}, \cite{2016SPIE.9910E..13D}, \cite{Yoachim2016},  \cite{lsstsciencecollaborationScienceDrivenOptimizationLSST2017},  \cite{2018Icar..303..181J}, \cite{2019AJ....157..151N}, \cite{jones_r_lynne_2020_4048838}, \cite{2022ApJS..258....1B} and references therein.  We chose to use the output from the \baselinefull cadence simulation \citep{v3.4sims} in our analysis. At the time of writing (August 2024), this simulation was the most accurate representation of how \gls*{lsst} will be conducted, having been refined by the Rubin \gls*{scoc} in consultation with the various \gls*{lsst} science collaborations and Rubin data rights community. 
-	The details of the earlier \texttt{baseline\_v3.0} are laid out in \cite{SCOC_Report_2}, where a number of minor adjustments had been incorporated into the survey strategy from previous versions to produce \baseline \footnote{\url{https://survey-strategy.lsst.io/baseline/changes.html}}. 
+ The \rubinsim operations simulator and Rubin scheduler are presented and reviewed in detail in \cite{2014SPIE.9150E..14C}, \cite{2014SPIE.9150E..15D}, \cite{2016SPIE.9910E..13D}, \cite{Yoachim2016},  \cite{lsstsciencecollaborationScienceDrivenOptimizationLSST2017},  \cite{2018Icar..303..181J}, \cite{2019AJ....157..151N}, \cite{jones_r_lynne_2020_4048838}, \cite{2022ApJS..258....1B} and references therein.  
+ We chose to use the output from the \baselinefull cadence simulation \citep{v4.0sims} in our analysis. At the time of writing (October 2024), this simulation was the most accurate representation of how \gls*{lsst} will be conducted, having been refined by the Rubin \gls*{scoc} in consultation with the various \gls*{lsst} science collaborations and Rubin data rights community. 
+	The details of the earlier \texttt{baseline\_v3.0} are laid out in \cite{SCOC_Report_2}, where a number of minor adjustments have been incorporated into the survey strategy from previous versions to produce \baseline \footnote{\url{https://survey-strategy.lsst.io/baseline/changes.html}}. 
+    In particular, \baseline simulates running the survey with a single $30$ s exposure for each visit, whereas previous simulations had assumed that each visit would be composed of $2 \times 15$ s ``snaps''.
+    A single $30$ s snap reduces the overhead due to image readout, increasing the time available to the survey by $\sim 7-9 \%$ \citep{SCOC_Report_3}.
+    It would appear that this gain in survey time outweighs most of the scientific opportunities enabled by two snaps, especially as the most recent simulations have included larger periods of downtime in Year 1 due to engineering and commissioning requirements.
+    % https://community.lsst.org/t/scientific-impact-of-moving-from-2-snaps-to-a-single-exposure/3266
+    % https://pstn-056.lsst.io/PSTN-056.pdf section 3.6
 	
 	\gls*{lsst} is comprised of multiple surveys (see Figure \ref{fig:baseline_labels}) with the largest component being the $\sim$18,000 deg$^2$ \gls*{wfd}; see \cite{SCOC_Report_1}, \cite{2022ApJS..258....1B}, and \cite{SCOC_Report_2} for a detailed description. 
 	In this analysis we have excluded any visits associated with the five \glspl*{ddf} or the low-solar elongation twilight survey\footnote{SQL query for the \baselinefull pointing database: \texttt{select * from observations where night<365 and note not like "\%DD\%" and note not like "\%twilight\%"}}.
@@ -268,9 +281,9 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
 	\subsection{Tracts and Patches}
 	\label{sec:tractsandpatches} 
 	
-	Each night the Rubin scheduler will randomly select a goal \gls*{lsstcam} rotator angle between $-$80$^{\circ}$ and +80$^{\circ}$ for the entire night of observations \citep{v3.4sims}. 
+	Each night the Rubin scheduler will randomly select a goal \gls*{lsstcam} rotator angle between $-$80$^{\circ}$ and +80$^{\circ}$ for the entire night of observations \citep{v4.0sims}. 
  The scheduler will try to execute observations with position angles as close as possible to the desired angle. Visits to the same pointing within a night will have close but slightly different camera rotator positions. 
- The scheduler will also execute spatial camera dithers between subsequent visits to the same on-sky \gls*{lsst} field \citep{v3.4sims}. 
+ The scheduler will also execute spatial camera dithers between subsequent visits to the same on-sky \gls*{lsst} field \citep{v4.0sims}. 
 These spatial and rotational dithers will lead to non-uniform coverage at sub-detector length scales; therefore creation of a template image will not be as simple as selecting a number of images in a given filter at the same field pointing. 
  Due to the shape of the \gls*{lsstcam} footprint, the gaps between charged coupled device (CCD) detectors, and gaps between rafts (groupings of CCDs within \gls*{lsstcam}), the dithering between observations requires that the \gls*{lsst} data management and reduction pipelines reduce non-coadded observations at the individual CCD level. 
  A similar strategy has been successfully employed in the Hyper Suprime-Cam Survey data reduction pipelines \citep{2018PASJ...70S...5B}. 
@@ -327,8 +340,8 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
 	\subsection{Requirements for Incremental Template Production}
 	The individual image requirements and total number of observations needed to make suitable Year 1 templates in each filter has not yet been finalized by the Rubin Observatory Data Management Team \citep{DMTN-107,RTN-011}. 
  On-sky tests with the commissioning camera (ComCam) and \gls*{lsstcam} are needed. 
- ComCam was installed in August 2024, with first photons expected in November 2024. 
- At the time of this paper's submission, \gls*{lsstcam} on-sky commissioning is expected to start in January 2025\footnote{The latest Rubin Observatory construction milestone schedule can be found at \url{https://www.lsst.org/about/project-status}}. 
+ ComCam was installed in August 2024, and the first photons were captured in October 2024. 
+ At the time of this paper's submission, \gls*{lsstcam} on-sky commissioning is expected to start in Spring 2025\footnote{The latest Rubin Observatory construction milestone schedule can be found at \url{https://www.lsst.org/about/project-status}}. 
  In the meantime, we can make some reasonable assumptions based on the expected performance of the telescope and camera system. 
  There are benefits and trade-offs to balance for the image requirements applied to Year 1 template generation. This study is a first step in understanding the impact of incremental template generation,  so we elect to use very broad requirements for image quality based on the simulated seeing and depth of each visit in \baseline. 
  Further work will be needed to explore the full phase space of image requirements to optimize \gls*{lsst} Year 1 template building. 
@@ -344,6 +357,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
  This may lead to contamination of the template images by slow moving sources, such as distant outer solar system objects.
 	
 	We impose broad image quality constraints to exclude the observations with the worst seeing and limiting magnitude. 
+    Visits of sufficient quality must all have their seeing within a given ratio, and the limiting magnitudes within a given range.
  Each filter is evaluated separately, as each filter has different expected image depth and seeing distributions, as shown in Tables \ref{tab:year1_image_seeing} and  \ref{tab:year1_image_depth}. 
 	For a given healpix, filter $f$, and date in the survey, we look at all the relevant observations taken up to that point and  every observation $j$ that matches the following criteria will be considered to build the Year 1 template at that healpixel location: 
 	\begin{enumerate}
@@ -431,7 +445,7 @@ We note that some healpixels may have $>4$ suitable observations available by th
   We do not adjust the 5-$\sigma$ limiting magnitude of an \gls*{lsst} observation based on the properties of its associated healpixels' templates. 
 If the majority of the healpixel templates go to a much shallower depth than the observation it is subtracted from, there will be many bogus transient detections in addition to the real transient astrophysical sources and moving \glspl*{sso}. 
 % We expect that  the \gls*{ssp} algorithms will be able to handle this, and that these extra bogus transient detections will not pollute significantly \gls*{ssp}'s moving object discoveries due to the constraint that the tracklets must be consistent with a heliocentric orbit over multiple days. 
-In principle the \gls*{ssp} algorithms, namely \heliolinc, should be able to match detections over a period of days to weeks and filter out those that are inconsistent with the Keplerian motion across the sky exhibited by a genuine \gls*{sso}.
+In principle the \gls*{ssp} algorithms, namely \heliolinc\footnote{\url{https://github.com/lsst-dm/heliolinc2}}, should be able to match detections over a period of days to weeks and filter out those that are inconsistent with the Keplerian motion across the sky exhibited by a genuine \gls*{sso}.
 % see: https://ui.adsabs.harvard.edu/abs/2023DPS....5540503H/abstract
 % see: https://ui.adsabs.harvard.edu/abs/2022DPS....5450404H/abstract
 The number of random false positive detections that could be combined in such a way to produce a decent heliocentric orbit fit, should be quite low, however, we acknowledge that the presence of bogus detections could complicate identification of genuine \glspl*{sso}. 
@@ -698,7 +712,7 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
 				
 			\end{tabular}
-			\caption{Skymaps (\nside = 256) per filter of the  difference between total number of visits with templates in Year 1 and the nominal \baseline survey. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
+			\caption{Skymaps (\nside = 256), per filter, showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
    Compared to $\Delta t = 28$d, the $\Delta t = 7$d simulation has more uniform template coverage and fewer healpixels with a $>4$ image loss.  
 			}
 			\label{fig:template_skymaps_delta-7_28days}
@@ -1020,6 +1034,7 @@ For $\Delta t = 28$ d, 43.7\% of Year 1 visits have template coverage $\geq90\%$
 \end{tabular}
 \caption{2-Dimensional histogram distributions showing how the fractional template coverage of all visits changes as a function of survey time.
 The logarithmic color scale indicates the number of visits with a particular template coverage on a given date. Results are shown for $\Delta t = 7$d \textbf{(left)} and $\Delta t = 28$d \textbf{(right)}.
+Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled maintenance around night 150.
 }
 \label{fig:fractional_template_coverage-2d}
   \end{figure}
@@ -1200,7 +1215,7 @@ Future investigations should account for any changes to the survey schedule as t
 
                 		\end{itemize}
 
-		Without modifications to the baseline (\baseline) Year 1 observing strategy, there will still be some \gls*{lsst} observations with suitable templates made as the survey progresses to allow image subtraction within 60\ s of the shutter closing, enabling the \gls*{rpp} and \gls*{ssp} pipelines to run and generate nightly solar system discoveries/alerts.
+		Without modifications to the baseline (\baseline) Year 1 observing strategy, there will still be some \gls*{lsst} observations with suitable templates made as the survey progresses to allow image subtraction and alert generation within 60\ s of image readout, enabling the \gls*{rpp} and \gls*{ssp} pipelines to run and generate nightly solar system discoveries/alerts.
   But there is a non-negligible hit to real-time detection and characterization of solar system small bodies. 
   The change in \maf metrics is much higher than the 5$\%$ difference from the baseline strategy deemed acceptable in the evaluation of cadence parameters for optimizing \gls*{lsst} solar system System science by \cite{schwambTuningLegacySurvey2023}. 
   For each simulated small body population investigated here, the larger objects are impacted less because they are typically brighter in apparent magnitude and thus more likely to be detectable in most or all of the \gls*{lsst} observations that they are present in. 
@@ -1241,7 +1256,7 @@ The \gls*{lsst} observing cadence has been carefully optimized to maximise resul
 If it is not possible for \gls*{lsst} to switch to 1 snap per visit or allocate the freed up on-sky time, other alternatives to boost the number of observations in the \gls*{nes} in Year 1 should be explored. 
 Closely following from this work, Schwamb et al. (in prep.) investigates possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of builidng templates.
 
-It is vital that studies exploring the possible parameter space for incremental template generation within the \gls*{lsst} observing strategy and its impact on the \gls*{lsst} 10-year and Year 1 \maf metrics be completed before the start of Rubin on-sky commissioning with \gls*{lsstcam} (currently expected to start in January 2025). 
+It is vital that studies exploring the possible parameter space for incremental template generation within the \gls*{lsst} observing strategy and its impact on the \gls*{lsst} 10-year and Year 1 \maf metrics be completed before the start of Rubin on-sky commissioning with \gls*{lsstcam} (currently expected to start in Spring 2025). 
 This will provide an opportunity to optimize the Year 1 observing strategy for alert production while giving the community time to initiate follow-up preparations for the start of \gls*{lsst} with the best picture of what Year 1 nightly outputs of the survey will look like.
 		
 \begin{acknowledgments}
@@ -1250,9 +1265,9 @@ This work was supported in part by the LSST Discovery Alliance Enabling Science 
 
 This material or work is also supported in part by the National Science Foundation through Cooperative Agreement AST-1258333 and Cooperative Support Agreement AST1836783 managed by the Association of Universities for Research in Astronomy (AURA), and the Department of Energy under Contract No. DE-AC02-76SF00515 with the SLAC National Accelerator Laboratory managed by Stanford University.
 
-We acknowledge access to Cuillin, a computing cluster of the Royal Observatory, University of Edinburgh. The also authors thank Eric Bellm, Grigori Fedorets, Leanne Guy, and Kat Volk for useful discussions. We thank Federica Bianco and the AAS (American Astronomical Society) Journals editorial team for facilitating the Rubin LSST Survey Strategy Optimization ApJS focus issue. This research has made use of NASA's Astrophysics Data System Bibliographic Services. Some of the results in this work have been derived using the \healpy and \healpix packages. For the purpose of open access, the author has applied a Creative Commons Attribution (CC BY) license to any Author Accepted Manuscript version arising from this submission.	
+We acknowledge access to Cuillin, a computing cluster of the Royal Observatory, University of Edinburgh. The also authors thank Eric Bellm, Leanne Guy, and Kat Volk for useful discussions. We thank Federica Bianco and the AAS (American Astronomical Society) Journals editorial team for facilitating the Rubin LSST Survey Strategy Optimization ApJS focus issue. This research has made use of NASA's Astrophysics Data System Bibliographic Services. Some of the results in this work have been derived using the \healpy and \healpix packages. For the purpose of open access, the author has applied a Creative Commons Attribution (CC BY) license to any Author Accepted Manuscript version arising from this submission.	
 			
-Data Access:  Data used in this paper are openly available from the Vera C. Rubin Observatory Construction Project and Operations Teams. The \rubinsim and \texttt{rubin\_scheduler} LSST cadence simulation databases used in this work are publicly available from \cite{v3.4sims}.
+Data Access:  Data used in this paper are openly available from the Vera C. Rubin Observatory Construction Project and Operations Teams. The \rubinsim and \texttt{rubin\_scheduler} LSST cadence simulation databases used in this work are publicly available from \cite{v4.0sims}.
 			
 		\end{acknowledgments}
 		
