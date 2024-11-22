@@ -333,9 +333,10 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
 	
 	\subsection{\healpix Sky Maps} 
 	\label{sec:ITG}
-	To (1) track the Year 1 visits in a given area of sky suitable for making an incremental template and (2) to identify which observations have sufficient template coverage to produce alerts and solar system detections in Year 1, we partition the sky using a \healpix map \citep[Hierarchical Equal Area isoLatitude Pixelization\footnote{\url{http://healpix.sourceforge.net}}; ][]{2005ApJ...622..759G}.
-    This pixelisation produces subdivisions of a spherical surface in which each pixel, which we refer to as a healpixel, in which each pixel covers the same surface area as every other pixel. 
-    \textbf{fix here} using an \verb|nside| factor that determines the resolution of each healpixel (e.g., Figure \ref{fig:baseline_skymaps}). 
+	To (1) track the Year 1 visits in a given area of sky suitable for making an incremental template and (2) to identify which observations have sufficient template coverage to produce alerts and solar system detections in Year 1, we partition the sky using a \healpix map \citep[Hierarchical Equal Area isoLatitude Pixelization\footnote{\url{http://healpix.sourceforge.net}}; ][]{2005ApJ...622..759G} as shown in Figures \ref{fig:baseline_labels} \& \ref{fig:baseline_skymaps}.
+    This pixelisation produces subdivisions of a spherical surface in which each pixel, which we refer to as a healpixel, covers the same surface area. 
+%    \textbf{fix here} using an \verb|nside| factor that determines the resolution of each healpixel. 
+ The resolution of the \healpix map is determined by \nside, such that the whole sky is divided into $12\times \verb|nside|^2$ healpixels.
  It is too computationally expensive to consider incremental template generation at the individual patch pixel level as each patch has 16,810,000 pixels. 
  Our best compromise is to instead focus on the patch as our smallest size element and use $\texttt{nside}=256$. This results in healpixels with a resolution of approximately $13.7\ \si{arcminutes}$ which is comparable in angular size to a patch. % 13.741946 arcmin  
 	We note that this results in a \healpix sky map grid that is similar to, but not exactly aligned with, the patch/tract tessellation that the Rubin Observatory Data Management pipelines are using.  
