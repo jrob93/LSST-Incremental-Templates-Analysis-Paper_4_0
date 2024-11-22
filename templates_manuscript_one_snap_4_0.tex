@@ -749,11 +749,11 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 		
 		Our analysis shows that the requirements of template generation during Year 1 of \gls*{lsst} reduces the number of visits, and area of the sky, with which detections can be made via difference imaging.
 This is shown in Figures \ref{fig:template_skymaps_tscale-7} and  \ref{fig:template_skymaps_tscale-28}, which are a series of sky maps showing the number of visits with templates for each filter, at the end of Year 1 in the $\Delta t = 7, 28$ day simulations, respectively.
-In comparison to the baseline scenario shown in Figure \ref{fig:baseline_skymaps}, the number of visits is reduced and for areas of sky not covered by the \gls*{wfd} cadence the coverage is noticeably less uniform.
+In comparison to the baseline scenario shown in Figure \ref{fig:baseline_skymaps}, the number of visits is reduced, and for areas of sky not covered by the \gls*{wfd} cadence, the coverage is noticeably less uniform.
 The fractional coverage of the survey footprint at the end of Year 1 for each filter and $\Delta t$ is given in Table \ref{tab:year1_unique_coverage_templates}.
 This is summarised in Figures 
 \ref{fig:template_skymaps_delta-7_28days}, \ref{fig:template_baseline_all} and \ref{fig:template_baseline_histograms7_28d}, which show how the numbers of visits with templates changes relative to \baseline.
-On average, there is a shift of $\gtrsim4$ visits, which were required to make the templates, but this is somewhat larger for the $ug$ filters in particular.
+On average, there is a shift of $\gtrsim4$ visits, which were required to make the templates, but this is somewhat larger for the $u$ and $g$ filters in particular.
 Altogether these results show that the loss of visits due to template generation depends strongly on the filter and area of sky being considered.
 
 		\begin{figure}
@@ -899,7 +899,7 @@ The \textbf{bottom} panels display the difference between the previous two rows.
   Due to this lag, and the loss of observations required for template building, the $rizy$ filters only reach $64-69\%$ of the baseline area for a 3 day template generation timescale.
 		The $u$ and $g$ filters achieve noticeably lower cumulative healpixel areas than the other filters ($26\%$ and $42\%$ respectively for $\Delta t = 3\ \si{d}$).
 		We note that as the template generation timescale is increased the cumulative healpixel area also decreases, with some filters experiencing greater decreases than others.
-		The cumulative healpixel area for filters $uizy$ decreases by $4-6\%$ as $\Delta t = 3 \rightarrow 28\ \si{d}$, whereas the drop for filters $gr$ is larger at $7 - 9 \%$. % see df_coverage
+		The cumulative healpixel area for filters $uizy$ decreases by $4-6\%$ as $\Delta t = 3 \rightarrow 28\ \si{d}$, whereas the drop for filters $g$ and $r$ is larger at $7 - 9 \%$. % see df_coverage
 
     \begin{figure}
 			\centering
@@ -924,8 +924,8 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 		\end{figure}
   
 		These trends are also shown in Figure \ref{fig:cumFrac_baseline}, where we again plot the cumulative healpixel area with templates,  but now normalised by the total Year 1 baseline area in that filter.
-		Here each panel shows the results for the different template generation timescales and we can compare each filter directly; in all cases the $ug$ filters lag behind the others.
-		This implies that the observing strategy for the $ug$ filters in \baseline is more sensitive to the delays incurred when template generation is accounted for.
+		Here each panel shows the results for the different template generation timescales and we can compare each filter directly; in all cases the $u$ and $g$ filters lag behind the others.
+		This implies that the observing strategy for the $u$ and $g$ filters in \baseline is more sensitive to the delays incurred when template generation is accounted for.
   % These filters have lower numbers in visits in Year 1 than other filters, and so taking images away for template generation introduces a greater fractional loss. % see difference sky maps!
 
   		% cumulative fraction of baseline area - equivalent to n_visits(t)/n_visits_total 
@@ -945,7 +945,7 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 		\end{figure}
   
   Altogether this analysis shows that the filters and sky areas that are scheduled to receive lower number of visits in the \baseline schedule are the most negatively affected by template generation across all timescales.
-  This is particularly true for the $ug$ filters and the \gls*{nes} and \gls*{gp} regions of the sky.
+  This is particularly true for the $u$ and $g$ filters and the \gls*{nes} and \gls*{gp} regions of the sky.
   The removal of $\geq4$ visits for template generation in these filters/regions is a greater fractional loss compared to parts of \baseline with larger numbers of visits scheduled in Year 1, such as the \gls*{wfd} areas.
 		Overall, the decrease in the number of visits and survey coverage when template generation is considered (Figures \ref{fig:cum_baseline_filter} and \ref{fig:cumFrac_baseline}) implies that there will be a corresponding reduction in the number of transient detections in the prompt data products (including alerts of high priority targets, e.g.\ solar system \glspl*{pha} and \glspl*{iso}) during Year 1 of \gls*{lsst}.
   We investigate this further in Section \ref{sec:sso_metrics}.
@@ -1074,7 +1074,7 @@ Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled
   The different orbits and physical properties of these distinct populations have a strong influence on discovery and characterisation.
   Furthermore we have considered a ``bright'' and ``faint'' component of each dynamical population (Section \ref{sec:applying_maf_metrics} \& Table \ref{tab:metrics}) in order to assess the effects for large and small \glspl*{sso} separately.
 		Each test population consists of 5000 objects randomly sampled from an appropriate synthetic population \cite[see Section 2.2 of][for more details of these simulated \glspl*{sso}]{schwambTuningLegacySurvey2023}.
-		We present the metric results of each template generation timescale relative to the default \baseline schedule where the presence of templates is implicitly assumed (i.e.\ all visits are capable of making \gls*{sso} detections and alerts).
+		We present the metric results of each template generation timescale relative to the default \baseline cadence simulation where the presence of templates is implicitly assumed (i.e.\ all visits are capable of making \gls*{sso} detections and alerts).
   Figure \ref{fig:temp_gen_discovery_metrics} shows that any form of template generation will strongly impact discovery in Year 1, with decreases of 10s of percent.
 Discovery of faint objects is more strongly affected; fainter objects are observed with lower \gls*{snr}, so there are fewer possible detections in the baseline.
 There is a larger fractional loss of detections due to a lack of templates compared to the bright population.
