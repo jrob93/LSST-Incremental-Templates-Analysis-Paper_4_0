@@ -234,7 +234,7 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
     The \baselinefull simulation includes more accurate estimates for the throughput of the optical system with silver instead of the originally planned aluminum mirror coatings. 
     All filters except for $u$ benefit from the switch to silver. Because of the revised throughputs, $g,r,i,z,$ and $y$-band exposures are 29.2s whereas $u$ exposures were lengthened to 38s.
     More visits were shifted to the $u$ filter; the number of $u$-band exposures was increased by 10$\%$ compared to \texttt{baseline\_v3.0\_10yrs} simulation. 
-    We note that the gain in observing time from the switch to 1 snap is not available in Year 1 of the \baseline simulation, as 8 weeks worth of downtime was included to account for additional engineering time that is expected to be needed post-commissioning \citep{SCOC_Report_3}. 
+    We note that the gain in observing time from switching to 1 snap is not available in Year 1 of the \baseline simulation, as 8 weeks worth of downtime was included to account for additional engineering time that is expected to be needed post-commissioning \citep{SCOC_Report_3}. 
     This engineering time is more heavily weighted to the start of the survey and tapers off towards the end of Year 1. 
     There is no rolling cadence (where the sky is divided into bands and during ``on'' years the band gets a more concentrated number of visits) implemented in the first year of \baseline due to the need for generating templates across the entire survey footprint for Year 2 operations. 
     The distributions of on-sky visits in Year 1 is shown in Figure \ref{fig:baseline_labels}.   
@@ -766,8 +766,8 @@ In comparison to the baseline scenario shown in Figure \ref{fig:baseline_skymaps
 The fractional coverage of the survey footprint at the end of Year 1 for each filter and $\Delta t$ is given in Table \ref{tab:year1_unique_coverage_templates}.
 This is summarised in Figures 
 \ref{fig:template_skymaps_delta-7_28days}, \ref{fig:template_baseline_all} and \ref{fig:template_baseline_histograms7_28d}, which show how the numbers of visits with templates changes relative to \baseline.
-On average, there is a shift of $\gtrsim4$ visits, which were required to make the templates, but this is somewhat larger for the $u$ and $g$ filters in particular.
-% This is primarily due to the revisit schedule for a given sky region in u and g, which do not have as many visits as other filters
+On average, there is a shift of $\gtrsim4$ visits, which were required to make the templates, but this is slightly larger for the $u$ and $g$ filters in particular.
+% This is primarily due to $u$ and $g$ not receiving as many visits as other bands across much of the sky and it takes longer to gather $>4$ and in by the next template generation night more visits have been taken?
 Altogether these results show that the loss of visits due to template generation depends strongly on the filter and area of sky being considered.
 
 		\begin{figure}
@@ -796,7 +796,7 @@ Altogether these results show that the loss of visits due to template generation
 			\caption{
 				Per filter histograms of sky area with templates as a function of number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
     We compare these two timescales as there is little difference between the distributions for $\Delta t = 3, 7\ \si{d}$ and $\Delta t = 14, 28\ \si{d}$ respectively.
-   See also the related Figure Set \ref{appendixb:1}.
+   See also the related Figure Set \ref{appendixb:1} (four images).
 			}
 			\label{fig:template_baseline_histograms7_28d}
 		\end{figure}
@@ -828,8 +828,7 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
         Sample positions representative of the \gls*{nes}, \gls*{wfd} and \gls*{gp} (RA, Dec positions of (90, 20), (0, -20), and (245, -20) degrees, respectively) are indicated with cross markers. 
         The \textbf{top} shows the sky map for the \baseline, \textbf{(middle)} shows the number of visits with templates for $\Delta t = 7\ \si{d}$, and \textbf{(bottom)} displays the difference between the baseline and $\Delta t = 7\ \si{d}$ sky maps (all considering only the $r$ filter). Note the different color scales for each panel indicating either the number of visits or difference in number of visits. 
         Zoom in plots of the regions marked with an ``x" are shown in Figures \ref{fig:skymap_cutouts_g_7} \& \ref{fig:skymap_cutouts_r_7}. 
-        The complete figure set (2 images) is available in the online Journal. 
-        % update plot titles, remove "filter" as it is now a header
+        The complete figure set (four images) is available in the online Journal. 
         }
         \label{fig:all_together_r_7d}
 	\end{figure}
@@ -857,8 +856,8 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
 The \textbf{top} panels show the number of visits for the \baseline and \textbf{middle} panels are the number of visits with templates for $\Delta t = 7\ \si{d}$.
 The \textbf{bottom} panels display the difference between the previous two rows.
 				Note the different color scales for each panel indicating either the number of visits or difference in number of visits. 	
-              The complete figure set (2 images) is available in the online Journal. 
-              % remove plot titles and left hand pixel scale info?
+              The complete figure set (four images) is available in the online Journal. 
+              % remove plot titles?
     }
 	\label{fig:skymap_cutouts_g_7}
 		\end{figure}
@@ -868,23 +867,20 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 			\centering
 			\begin{tabular}{  c c c}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				%\raisebox{.4\height}{\includegraphics[width=0.2\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf}} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				% \raisebox{.4\height}{\includegraphics[width=0.2\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf}} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				% \raisebox{.4\height}{\includegraphics[width=0.2\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf}} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
 				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_g_7} for the $r$ filter.  
-               The complete figure set (2 images) is available in the online Journal. 
-                             % remove plot titles and left hand pixel scale info?
+               The complete figure set (four images) is available in the online Journal. 
+                             % remove plot titles?
 			}
    \label{fig:skymap_cutouts_r_7}
 		\end{figure}
@@ -1017,10 +1013,9 @@ Figure \ref{fig:cumFrac_deltaNight} shows that as $\Delta t$ is decreased, the t
 				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}
 			\end{tabular}
 			\caption{Plots showing the cumulative fraction of the Year 1 survey footprint area (i.e.\ the unique on-sky area covered by that filter in the Year 1 survey) against \deltaNight, which is the number of days between the first visit to a healpixel and the night at which a template was generated.
-				% Jamie Note: This is the unique sky area covered in each filter
+				% Note: This is the unique sky area covered in each filter
 				Each panel shows the results for a different filter ($ugrizy$).
 				The $x$ axis is limited to show a maximum $\deltaNight=90\ \si{d}$ to highlight the timescale over which there is the greatest change.
-				% \textbf{Filters u and y show interesting modulation between 3d and 28d...}
 			}
 			\label{fig:cumFrac_deltaNight}
 		\end{figure}
@@ -1072,7 +1067,6 @@ Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled
 			\begin{center}
 				\begin{interactive}{animation}{results/plot_template_coverage_figs/first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi_nside_256_t-7d_doAllTemplateMetrics_reduceCount/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_and_night_lt_365_and_scheduler_note_not_like_DD_and_scheduler_note_not_like_twilight_HEAL.mp4}
 				\end{interactive}
-%				\includegraphics[width=0.5\columnwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_and_night_lt_84_and_note_not_like_DD_and_note_not_like_twilight_HEAL.pdf}
 				\includegraphics[width=0.5\columnwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_and_night_lt_84_and_scheduler_note_not_like_DD_and_scheduler_note_not_like_twilight_HEAL.pdf}
 				\caption{A snapshot of a video animation of the sky coverage over time in \baseline observing strategy in the case where templates are produced incrementally every $\Delta t = 7$ days over the first year of the simulated survey.  
     The animation steps through the first year of the simulated \gls*{lsst} in intervals of 7 days, displaying the cumulative number of on-sky visits in the $r$ filter. 
@@ -1106,13 +1100,10 @@ This demonstrates that losses in the \gls*{nes} region are dominating the overal
 In Year 1 the \gls*{nes} receives $\sim75\%$ fewer visits than the \gls*{wfd}; this means that losing $\geq4$ visits to templates is a greater proportional loss, which results in a larger fraction of missed \gls*{sso} detections.
 % This is because the smaller number of visits in the \gls*{nes} compared to the \gls*{wfd} means that losing $\geq4$ visits to templates is a greater proportional loss, causing a larger fraction of missed \gls*{sso} detections.
 		
-		% In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}.
-  % In Figure \ref{fig:temp_gen_colour_metrics} we present the results for the characterization metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.
   		In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.
 		As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.
 		% \textbf{TNOs and OCCs do not get any colors when templates are considered.}
 When considering only observations made in Year 1, the color metric values for the nominal \baseline survey sit at only $\sim10\%$ for \glspl*{mba} and $\sim4\%$ for the \glspl*{neo} and \glspl*{pha}.
-  % The colour characterization metric drops dramatically when template generation is required.
   The color characterization metric drops dramatically when template generation is required, to values of $<1\%$.
 This is not surprising given that this metric requires a larger number of detections (across multiple filters) compared to the minimum of 6 detections (in any filter) for discovery.
   Colors are useful for approximating the composition of an \gls*{sso}, but this result implies that during Year 1 we will only be able to measure colors for a small fraction of objects.
@@ -1132,7 +1123,7 @@ From the observing site the \gls*{nes} is observable by the survey for the first
 Further delays to the survey start date could reduce the amount of time available to observe the \gls*{nes} and have an even more dramatic effect on \gls*{sso} discoveries.
 Future investigations should account for any changes to the survey schedule as the timeline becomes more clear.
 		
-		The results of these \maf solar system metrics provide a more direct estimate of the effects of template generation on solar system science than simply looking at the sky area with templates considered in Section \ref{sec:template_coverage}. We caution the reader that these \maf metrics are for the total numbers of discovered and characterized \gls*{sso}. It would require additional assumptions to attempt to convert the metrics into total number of objects, so we instead continue to examine the relative change to the baseline. 
+		The results of these \maf solar system metrics provide a more direct estimate of the effects of template generation on solar system science than simply looking at the sky area with templates considered in Section \ref{sec:template_coverage}. We caution the reader that these \maf metrics are for the total numbers of discovered and characterized \gls*{sso}, per simulated bin in absolute magnitude. It would require additional assumptions to convert the metrics into an absolute total number of objects, so we instead continue to examine the relative change to the baseline. 
 		We can clearly see that the requirements of template generation leads to large drops in the discovery and measurement of colors for the dynamical populations investigated.
 		If we consider the analysis in \cite{schwambTuningLegacySurvey2023}, they compared different survey strategies and stated that a $\pm5\%$ variation in a given metric (relative to the baseline survey at the time) would be acceptable for solar system science cases.
 		However these results show drops of $28-63\%$ in discovery relative to the baseline across all test populations (Figure \ref{fig:temp_gen_discovery_metrics}), alongside delays of $\gtrsim 60$ days before \gls*{sso} discoveries can be made (Figure \ref{fig:completeness_over_time}).
@@ -1225,7 +1216,6 @@ Future investigations should account for any changes to the survey schedule as t
 		
 		\begin{itemize}
 			\item Early template generation is preferred. The sooner templates are generated, the closer the performance will be to the idealized \baseline observing strategy's real-time discovery rates. This is because more observations become available for nightly prompt processing at shorter template production timescales. 
-   			 % 5 We expect it will take approximately 2 months from the start of the survey to build sufficient numbers of templates in multiple filters for nightly solar system discoveries by \gls*{ssp} to begin. 
        We expect it will take $\sim 50$ days from the start of the survey to build significant template coverage across the sky, followed by $\sim 2$ weeks before  \gls*{sso} discoveries are made by the \gls*{ssp} pipeline.
        This results in a total delay of over 2 months before significant numbers of nightly \gls*{sso} alerts will be issued.
 			 Across all the metrics we evaluated, a monthly template strategy performs the worst. A 3 day/7 day turnaround time for template production provides the most opportunities to identify transient sources in \gls*{lsst} observations in real-time and results in more uniform coverage across the sky. 
@@ -1233,7 +1223,6 @@ Future investigations should account for any changes to the survey schedule as t
 
 			\item Both solar system discoverability and color metrics are significantly affected by template generation, with the shorter template generation timescales performing slightly better. 
 			 The discovery metrics across all dynamical populations tested here have a $\gtrsim28\%$ decrease compared to the nominal Year 1 baseline metrics. The \gls*{mba} discovery metrics are impacted the most with a drop $>40\%$ for the larger ($H \leq$ 16) objects and $>60\%$ for the smaller asteroids ($H \leq$ 21). 
-			% \item 9 In general, the discoverability of smaller (and typically fainter) objects are impacted more significantly by Year 1 template generation than larger (typically brighter) objects. 
 			 The inner solar system color metrics are impacted more severely than the discovery metrics. There is a drop of more than $90\%$ compared to the nominal Year 1 baseline for the \gls*{mba}, \gls*{neo}, and \gls*{pha} populations. 
 
 			\item For all incremental template timescales, coverage in $g$-band and $u$-band visits lags significantly behind the other filters due to the small number of scheduled observations in these filters during Year 1. 
@@ -1276,10 +1265,6 @@ The \gls*{lsst} observing cadence has been carefully optimized to maximise resul
 		Further \rubinsim simulations are needed to examine if, and how, the Rubin scheduler can be tuned to maximize template production over the Year 1 without significantly impacting the 10-year outputs of the survey. 
 		% Strategies to boost the $g$ and $u$ template production rates in Year 1 should also be considered.
   It is important for the community and the \gls*{scoc} to explore possible modifications to the Year 1 observing cadence  that may significantly boost template production, such as earmarking a small amount of Year 1 observing time for template building. 
-		% Currently the \gls*{lsst} survey strategy employs two back-to-back 15 s exposures (snaps) per visit that are combined to produce a single \gls*{lsst} observation.
-  % The \gls*{scoc} and Rubin Observatory are considering moving to one 30 s snap per visit which would reduce overheads due to image readout. 
- % Some of this additional observing time could go into template building observations in low coverage sky areas or filters that are more adversely affected by template generation, such as the \gls*{gp}/\gls*{nes} and the $ug$ filters respectively.
-% If it is not possible for \gls*{lsst} to switch to 1 snap per visit or allocate the freed up on-sky time,
 Other alternatives to boost the number of observations in the \gls*{nes} in Year 1 should be explored. 
 Closely following from this work, Schwamb et al. (in prep.) investigates possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.
 
@@ -1337,9 +1322,9 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
 		\appendix
   
-		\section{Figure Set \ref{fig:template_baseline_histograms7_28d} Figures}
+		\section{Figure Set \ref{fig:template_image_histograms_tscale} Figures}
 		
-		For ease of the reviewer/reader, in this appendix we provide an additional figure set that complements Figure \ref{fig:template_baseline_histograms7_28d}: Figures \ref{appendixa:1}, \ref{appendixa:2}, \ref{appendixa:3}, \ref{appendixa:4}, \ref{appendixa:5}, and \ref{appendixa:6}. 
+		For ease of the reviewer/reader, in this appendix we provide the figures that would make the complete Figure Set \ref{fig:template_image_histograms_tscale}: Figures \ref{appendixa:1}, \ref{appendixa:2}, \ref{appendixa:3}, \ref{appendixa:4}, \ref{appendixa:5}, and \ref{appendixa:6}. 
   
 		
 		\begin{figure}[h]
@@ -1439,9 +1424,9 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
 
   		% \appendix
-		\section{Figure Set \ref{fig:template_baseline_histograms_7d} Figures}
+		\section{Figure Set \ref{fig:template_baseline_histograms7_28d} Figures}
 		
-		For ease of the reviewer/reader, in this appendix we provide the figures that would make the complete Figure Set \ref{fig:template_baseline_histograms_7d}: Figures \ref{appendixb:1}, \ref{appendixb:2}, \ref{appendixb:3}, and \ref{appendixb:4}. 
+		For ease of the reviewer/reader, in this appendix we provide the a Figure Set that complements Figure \ref{fig:template_baseline_histograms7_28d}: Figures \ref{appendixb:1}, \ref{appendixb:2}, \ref{appendixb:3}, and \ref{appendixb:4}. 
 
 
   \begin{figure}
@@ -1502,10 +1487,215 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 			\caption{ Same as Figure \ref{appendixb:1} for $\Delta t = 28\ \si{d}$. \label{appendixb:4}}
 		\end{figure}
 
-  \section{Figure Set \ref{fig:all_together_r_7d} Figures}
+  \section{Figure Sets \ref{fig:all_together_r_7d}, , \ref{fig:skymap_cutouts_r_7} and \ref{fig:skymap_cutouts_g_7} Figures}
 
-    For ease of the reviewer/reader, in this appendix we provide the figures that would make the complete Figure Set \ref{fig:all_together_r_7d}, \ref{fig:skymap_cutouts_r_7} and \ref{fig:skymap_cutouts_g_7}: Figures \ref{fig:all_together_r_28d}, \ref{fig:skymap_cutouts_r_28} and \ref{fig:skymap_cutouts_g_28}.
-    
+    For ease of the reviewer/reader, in this appendix we provide the figures that would make the complete Figure Sets \ref{fig:all_together_r_7d}, \ref{fig:skymap_cutouts_r_7} and \ref{fig:skymap_cutouts_g_7}: Figures 
+    \ref{fig:all_together_r_3d}, \ref{fig:skymap_cutouts_r_3}, \ref{fig:skymap_cutouts_g_3},
+    \ref{fig:all_together_r_7d}, \ref{fig:skymap_cutouts_r_7}, \ref{fig:skymap_cutouts_g_7},
+    \ref{fig:all_together_r_14d}, \ref{fig:skymap_cutouts_r_14}, \ref{fig:skymap_cutouts_g_14},
+    \ref{fig:all_together_r_28d}, \ref{fig:skymap_cutouts_r_28} and \ref{fig:skymap_cutouts_g_28}.
+
+\begin{figure}
+   		\centering
+			\begin{tabular}{c c}
+          filter = $g$ &  filter = $r$\\
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+   \end{tabular}
+
+        \caption{
+        Same as Figure \ref{fig:all_together_r_7d} for $\Delta t$ = 3 d. 
+        % update titles to match other figure
+        }
+        \label{fig:all_together_r_3d}
+	\end{figure}
+
+  
+
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+   Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 3 d. 
+                 % remove plot titles and left hand pixel scale info?
+    }
+	\label{fig:skymap_cutouts_g_3}
+		\end{figure}
+
+  
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 3 d.  
+                   % remove plot titles and left hand pixel scale info?
+			}
+   \label{fig:skymap_cutouts_r_3}
+		\end{figure}
+        
+\begin{figure}
+   		\centering
+			\begin{tabular}{c c}
+          filter = $g$ &  filter = $r$\\
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+   \end{tabular}
+
+        \caption{
+        Same as Figure \ref{fig:all_together_r_7d} for $\Delta t$ = 7 d. 
+        % update titles to match other figure
+        }
+        \label{fig:all_together_r_7d}
+	\end{figure}
+
+  
+
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+   Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 7 d. 
+                 % remove plot titles and left hand pixel scale info?
+    }
+	\label{fig:skymap_cutouts_g_7}
+		\end{figure}
+
+  
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 7 d.  
+                   % remove plot titles and left hand pixel scale info?
+			}
+   \label{fig:skymap_cutouts_r_7}
+		\end{figure}
+        
+\begin{figure}
+   		\centering
+			\begin{tabular}{c c}
+          filter = $g$ &  filter = $r$\\
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+
+   \end{tabular}
+
+        \caption{
+        Same as Figure \ref{fig:all_together_r_7d} for $\Delta t$ = 14 d. 
+        % update titles to match other figure
+        }
+        \label{fig:all_together_r_14d}
+	\end{figure}
+
+  
+
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+   Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 14 d. 
+                 % remove plot titles and left hand pixel scale info?
+    }
+	\label{fig:skymap_cutouts_g_14}
+		\end{figure}
+
+  
+  	\begin{figure}
+			\centering
+			\begin{tabular}{  c c c}
+                 NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 14 d.  
+                   % remove plot titles and left hand pixel scale info?
+			}
+   \label{fig:skymap_cutouts_r_14}
+		\end{figure}
+
 \begin{figure}
    		\centering
 			\begin{tabular}{c c}
@@ -1572,7 +1762,6 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 			}
    \label{fig:skymap_cutouts_r_28}
 		\end{figure}
-
 
 
   
