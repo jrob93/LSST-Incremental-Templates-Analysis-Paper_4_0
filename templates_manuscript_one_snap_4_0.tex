@@ -33,6 +33,7 @@
 \newcommand{\healpix}{\texttt{HEALPix}\xspace} % HEALPix - Hierarchical Equal Area isoLatitude Pixelization
 \newcommand{\healpy}{\texttt{healpy}\xspace}
 \newcommand{\pandas}{\texttt{pandas}\xspace}
+\newcommand{\numpy}{\texttt{numpy}\xspace}
 \newcommand{\matplotlib}{\texttt{Matplotlib}\xspace}
 \newcommand{\scipy}{\texttt{SciPy}\xspace}
 \newcommand{\maf}{\texttt{MAF}\xspace}
@@ -148,7 +149,8 @@ Helsinki, Finland}
  % sarah - Sarah Greenstreet
  % pie314271 - Bryce Bolin
 
- % authors to add
+ % Comments sent via email
+ % Grigori Fedorets
  % Cyrielle Opitom
  
 	\begin{abstract}
@@ -227,7 +229,15 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
     % https://community.lsst.org/t/scientific-impact-of-moving-from-2-snaps-to-a-single-exposure/3266
     % https://pstn-056.lsst.io/PSTN-056.pdf section 3.6 
    
-    Full details about the \baselinefull observing cadence is described in \cite{SCOC_Report_3}. We highlight a few of the notable aspects of the observing strategy and changes compared to previous \rubinsim simulations. The \baselinefull includes better (and mostly improved) estimates for the throughput of the optical system with silver instead of the originally planned aluminum mirror coatings. All filters except for $u$ benefit from the switch to silver. Because of the revised throughputs, $g,r,i,z,$ and $y$-band exposures are 29.2s and $u$ exposures were lengthened to 38s, and more visits were shifted to the $u$ filter. The number of $u$-band exposures was increased by 10$\%$ compared to \texttt{baseline\_v3.0\_10yrs} simulation. We note that the gain in observing time from the switch to 2 snap is not available in year 1 of the \baseline simulation, as 8 weeks worth of additional downtime were included in Year 1  to mimic engineering time that is expected to be needed post commissioning \citep{SCOC_Report_3}. The engineering time is more heavily weighted to the start of the survey and tapers off towards the end of Year 1. There is no rolling cadence (where the sky is divided into bands and during ``on'' years the band gets a more concentrated number of visits) implemented in the first year of \baseline due to the need for generating templates across the entire survey footprint for Year 2 operations. The distributions of on-sky visits in Year 1 is shown in Figure \ref{fig:baseline_labels}.   
+    Full details on the \baselinefull observing cadence is described in \cite{SCOC_Report_3}. 
+    We highlight a few of the notable aspects of the observing strategy and changes compared to previous \rubinsim simulations. 
+    The \baselinefull simulation includes more accurate estimates for the throughput of the optical system with silver instead of the originally planned aluminum mirror coatings. 
+    All filters except for $u$ benefit from the switch to silver. Because of the revised throughputs, $g,r,i,z,$ and $y$-band exposures are 29.2s whereas $u$ exposures were lengthened to 38s.
+    More visits were shifted to the $u$ filter; the number of $u$-band exposures was increased by 10$\%$ compared to \texttt{baseline\_v3.0\_10yrs} simulation. 
+    We note that the gain in observing time from the switch to 1 snap is not available in Year 1 of the \baseline simulation, as 8 weeks worth of downtime was included to account for additional engineering time that is expected to be needed post-commissioning \citep{SCOC_Report_3}. 
+    This engineering time is more heavily weighted to the start of the survey and tapers off towards the end of Year 1. 
+    There is no rolling cadence (where the sky is divided into bands and during ``on'' years the band gets a more concentrated number of visits) implemented in the first year of \baseline due to the need for generating templates across the entire survey footprint for Year 2 operations. 
+    The distributions of on-sky visits in Year 1 is shown in Figure \ref{fig:baseline_labels}.   
 	
 	The \gls*{lsst} is comprised of multiple surveys (see Figure \ref{fig:baseline_labels}) with the largest component being the $\sim$18,000 deg$^2$ \gls*{wfd}; see \cite{SCOC_Report_1}, \cite{2022ApJS..258....1B}, and \cite{SCOC_Report_2} for a detailed description. 
 	In this analysis we have excluded any visits associated with the five \glspl*{ddf} or the low-solar elongation twilight survey\footnote{SQL query for the \baselinefull pointing database: \texttt{select * from observations where night<365 and scheduler$\_$note not like "\%DD\%" and scheduler$\_$note not like "\%twilight\%"}}.
@@ -279,7 +289,6 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
 			\begin{center}
 				\begin{interactive}{animation}{results/plot_template_coverage_figs/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside_256_t-7d_CountMetric/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_CountMetric_r_and_night_lt_365_and_scheduler_note_not_like_DD_and_scheduler_note_not_like_twilight_HEAL.mp4}
 				\end{interactive}
-%				\includegraphics[width=0.5\columnwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_CountMetric_r_and_night_lt_84_and_note_not_like_DD_and_note_not_like_twilight_HEAL.pdf}
 				\includegraphics[width=0.5\columnwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_CountMetric_r_and_night_lt_84_and_scheduler_note_not_like_DD_and_scheduler_note_not_like_twilight_HEAL.pdf}
 				\caption{A snapshot from an animation showing the Year 1 sky coverage over time for the \baseline observing strategy. 
     The animation steps through the first year of the simulated \gls*{lsst} in intervals of 7 days, displaying the cumulative number of on-sky visits in the $r$ filter. 
@@ -367,7 +376,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
 	On the other hand, if image quality constraints are too restrictive then very few observations will meet our requirements making templates even scarcer in Year 1.  
 	Using the values per visit reported in the \baseline pointing database generated by \rubinsim, we evaluate the seeing quality using the ``effective” \gls*{fwhm}, which is the \gls*{fwhm} of a single Gaussian describing the \gls*{psf}, and image depth from the 5-$\sigma$ limiting magnitude\footnote{In \baseline these are the fields \texttt{seeingFwhmEff} and \texttt{fiveSigmaDepth} respectively}. 
 	We have not directly included airmass constraints on incremental template generation. 
- We also set no minimum time threshold between suitable images as \gls*{ssp} only attempts to link sources that have moved within a single observing night, and most \glspl*{sso} would be expected to move sufficiently far on the sky between the template building observations and future observations of the field to be identified as transient sources after the template is available.
+ We also set no minimum time threshold between suitable images as \gls*{ssp} only attempts to link sources that have moved within a single observing night. Most \glspl*{sso} would be expected to move sufficiently far on the sky between the template building observations and future observations of the field to be identified as transient sources after the template is available.
  However, this may lead to contamination of the template images by slow moving sources, such as distant outer \glspl*{sso}.
 	
 	We impose broad image quality constraints to exclude the observations with the worst seeing and limiting magnitude. 
@@ -647,7 +656,7 @@ Therefore we calculate this metric only for the Inner Solar System populations: 
 				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{Same as Figure \ref{fig:template_skymaps_tscale-7} for a template generation timescale of 28 days.
-				Compare to figure \ref{fig:baseline_skymaps} for the baseline number of visits per pixel at the end of Year 1.
+				Compare to Figure \ref{fig:baseline_skymaps} for the baseline number of visits per pixel at the end of Year 1.
 			}
 			\label{fig:template_skymaps_tscale-28}
 		\end{figure}
@@ -1175,17 +1184,17 @@ Future investigations should account for any changes to the survey schedule as t
 			\label{fig:temp_gen_discovery_metrics_dec}
 		\end{figure}
 		
-		% colour metrics
-		\begin{figure}
-			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_bright.pdf} &
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_faint.pdf}
-			\end{tabular}
-			\caption{\textbf{Drop this figure. }Similar to Figure \ref{fig:temp_gen_discovery_metrics} but now showing the metric value (relative to the baseline) of \glspl*{sso} in the simulated populations for which at least 4 colors can be measured from the $grizy$ filters.
-			}
-			\label{fig:temp_gen_colour_metrics}
-		\end{figure}
+		% % colour metrics
+		% \begin{figure}
+		% 	\centering
+		% 	\begin{tabular}{c c}
+		% 		\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_bright.pdf} &
+		% 		\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_faint.pdf}
+		% 	\end{tabular}
+		% 	\caption{\textbf{Drop this figure. }Similar to Figure \ref{fig:temp_gen_discovery_metrics} but now showing the metric value (relative to the baseline) of \glspl*{sso} in the simulated populations for which at least 4 colors can be measured from the $grizy$ filters.
+		% 	}
+		% 	\label{fig:temp_gen_colour_metrics}
+		% \end{figure}
 		
 		% completeness over time
 		\begin{figure}
@@ -1242,7 +1251,6 @@ Future investigations should account for any changes to the survey schedule as t
 	The drop in the discovery metrics is likely influenced by the lack of $g$-band templates, as $g$ is typically paired with the $r$ filter in nightly pairs. 
   Furthermore, the lack of templates in the \gls*{nes} region leads to a significant loss of \gls*{sso} discoveries.
 		Exploring options for boosting Year 1 template production in low-coverage filters and sky regions (i.e.\ the $g$ filter and \gls*{nes}) are likely first steps to improving the number of nightly pairs searchable each night for moving objects. 
-  % describe override g tests here?
 		
 		In this work we have focused on the impact on solar system metrics, but there are parallels that can be drawn to the discovery of other astrophysical transients using the Rubin alert stream. 
   An \gls*{lsst} visit will only be able to produce alerts when the visit's on-sky footprint has adequate template coverage, which requires a sufficient number of previous observations (in the same filter).
@@ -1281,19 +1289,22 @@ This will provide an opportunity to optimize the Year 1 observing strategy for a
 \begin{acknowledgments}
 
 This work was supported in part by the LSST Discovery Alliance Enabling Science grants program, the B612 Foundation, the University of Washington's DiRAC (Data-intensive Research in Astrophysics and Cosmology) Institute, the Planetary Society, Karman+, Breakthrough Listen, and the Adler Planetarium through generous support of the LSST Solar System Readiness Sprints. 
+The DiRAC Institute is supported through generous gifts from the Charles and Lisa Simonyi Fund for Arts and Sciences and the Washington Research Foundation.
 Breakthrough Listen is managed by the Breakthrough Initiatives, sponsored by the Breakthrough Prize Foundation (\url{http://www.breakthroughinitiatives.org}). 
-M.E.S. was supported by the UK Science Technology Facilities Council (STFC) grants ST/V000691/1 and ST/X001253/1. 
+J.E.R. acknowledges support via the Science Technology Facilities Council (STFC) funding for UK participation in LSST, through grant ST/X001334/1, in addition to support from the Royal Society RF\textbackslash ERE\textbackslash231044.
+M.E.S. and S.R.M were supported by the UK STFC grants ST/V000691/1 and ST/X001253/1. 
 M.E.S. also acknowledges the support by a LSST Discovery Alliance LINCC Frameworks Incubator grant [2023-1042SFF-LFI-01-Schwamb]. 
 Support was provided by Schmidt Sciences. 
-M.J. acknowledges the support from the University of Washington College of Arts and Sciences, Department of Astronomy, and the DiRAC (Data-intensive Research in Astrophysics and Cosmology) Institute, the Washington Research Foundation Data Science Term Chair fund, and the University of Washington Provost's Initiative in Data-Intensive Discovery. 
-C.O.C., S.G, M.J., J.P., and P.Y. acknowledge support from the DiRAC Institute in the Department of Astronomy at the University of Washington.
-The DiRAC Institute is supported through generous gifts from the Charles and Lisa Simonyi Fund for Arts and Sciences and the Washington Research Foundation. 
-S.R.M acknowledges suppor from UK Science and Technology Facilities Council (STFC) grants ST/V000691/1 and ST/X001253/1. 
+M.J. acknowledges the support from the University of Washington College of Arts and Sciences, Department of Astronomy, and the DiRAC Institute, the Washington Research Foundation Data Science Term Chair fund, and the University of Washington Provost's Initiative in Data-Intensive Discovery. 
+C.O.C., S.G, and P.Y. acknowledge support from the DiRAC Institute in the Department of Astronomy at the University of Washington. 
+% S.R.M acknowledges support from UK Science and Technology Facilities Council (STFC) grants ST/V000691/1 and ST/X001253/1. 
 The work of S.G. is supported by NOIRLab, which is managed by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the U.S. National Science Foundation.
 
 This material or work is also supported in part by the National Science Foundation through Cooperative Agreement AST-1258333 and Cooperative Support Agreement AST1836783 managed by the Association of Universities for Research in Astronomy (AURA), and the Department of Energy under Contract No. DE-AC02-76SF00515 with the SLAC National Accelerator Laboratory managed by Stanford University.
 
-We acknowledge access to Cuillin, a computing cluster of the Royal Observatory, University of Edinburgh. The also authors thank Eric Bellm, Leanne Guy, and Kat Volk for useful discussions. We thank Federica Bianco and the AAS (American Astronomical Society) Journals editorial team for facilitating the Rubin LSST Survey Strategy Optimization ApJS focus issue. This research has made use of NASA's Astrophysics Data System Bibliographic Services. Some of the results in this work have been derived using the \healpy and \healpix packages. For the purpose of open access, the author has applied a Creative Commons Attribution (CC BY) license to any Author Accepted Manuscript version arising from this submission.	
+We acknowledge access to Cuillin, a computing cluster of the Royal Observatory, University of Edinburgh. The authors thank Eric Bellm, Leanne Guy, and Kat Volk for useful discussions. We thank Federica Bianco and the AAS (American Astronomical Society) Journals editorial team for facilitating the Rubin LSST Survey Strategy Optimization ApJS focus issue. This research has made use of NASA's Astrophysics Data System Bibliographic Services. 
+Some of the results in this work have been derived using the \healpy and \healpix packages. 
+For the purpose of open access, the author has applied a Creative Commons Attribution (CC BY) license to any Author Accepted Manuscript version arising from this submission.	
 			
 Data Access:  Data used in this paper are openly available from the Vera C. Rubin Observatory Construction Project and Operations Teams. The \rubinsim and \texttt{rubin\_scheduler} LSST cadence simulation databases used in this work are publicly available from \cite{v4.0sims}.
 			
@@ -1301,7 +1312,8 @@ Data Access:  Data used in this paper are openly available from the Vera C. Rubi
 		
 		\facility{Vera C. Rubin Observatory}
 		
-		\software{\healpy \citep{2005ApJ...622..759G,Zonca2019}, LSST Metrics Analysis Framework \citep[\maf,][]{2014SPIE.9149E..0BJ}, \matplotlib \citep{Hunter:2007}, \rubinsim \citep{2014SPIE.9150E..14C, 2014SPIE.9150E..15D, 2017arXiv170804058L, 2019AJ....157..151N, jones_r_lynne_2020_4048838}, \pandas \citep{mckinneyDataStructuresStatistical2010}, \scipy \citep{virtanenSciPyFundamentalAlgorithms2020}}
+		\software{\healpy \citep{2005ApJ...622..759G,Zonca2019}, LSST Metrics Analysis Framework \citep[\maf,][]{2014SPIE.9149E..0BJ}, \matplotlib \citep{Hunter:2007}, \rubinsim \citep{2014SPIE.9150E..14C, 2014SPIE.9150E..15D, 2017arXiv170804058L, 2019AJ....157..151N, jones_r_lynne_2020_4048838}, \pandas \citep{mckinneyDataStructuresStatistical2010}, \scipy \citep{virtanenSciPyFundamentalAlgorithms2020}, \numpy \citep{harrisArrayProgrammingNumPy2020}}
+
 		
 \section*{Author Contributions}
 
@@ -1322,18 +1334,6 @@ J.K.P. provided guidance on the process of incremental template generation in th
 S.R.M and G.F. were involved in early discussion that launched the analysis described in this work. They also provided feedback on the overall manuscript. 
 
 B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript. 
-% Other contributions:
-% Steph and Grigori: part of initial investigation, provided feedback and review on final manuscript.
-
-% Mario Juric: provided useful input during the initial discussions to determine the goals and methods of the project, provided feedback and assisted with interpretation of the results in the context of wider survey strategy.
-
-% Lynne Jones and Peter Yoachim: developed the MAF framework and provided valuable example code and advice from which the project was developed. Assisted with interpretation of the results in the context of wider survey strategy.
-
-% Steven Chesley and Wes Fraser: developed the SSO metrics utilised in this work. In addition Wes provided comments and feedback.
-
-% John Parejko: provided figure X and provided comments and feedback
-
-% Bryce, Colin, Sarah, Henry: provided helpful comments and feedback, improving the content and flow of the manuscript
 
 		\appendix
   
