@@ -20,9 +20,10 @@
 \usepackage[acronym,nonumberlist]{glossaries}
 % extra symbols
 \usepackage{textcomp}
-% highlight text
+% highlight text for comments
 \usepackage{color,soul}
-
+% allow for better figure alignment in tabular
+\usepackage[export]{adjustbox} % http://ctan.org/pkg/adjustbox - conflicts with aastex \splitbox command
 
 % aliases
 \newcommand{\baseline}{\texttt{one\_snap\_v4.0}\xspace}
@@ -252,16 +253,19 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
  Figure \ref{animation:baseline} displays a snapshot from an animation showing the nominal sky coverage of $r$-band observations expected over the first year of the survey.
 
 		\begin{figure}
-			\begin{center}
-				\includegraphics[width=0.6\columnwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf}
-				\caption{A sky map showing the total number of visits, in all filters, at the end of Year 1 for the \baselinefull observing strategy (Mollweide projection). 
+			% \begin{center}
+			% 	\includegraphics[width=0.6\columnwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf}
+		\centering
+  \includegraphics[width=0.4\textwidth,valign=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf}
+  \includegraphics[width=0.4\textwidth,valign=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi_bounds.pdf}
+				\caption{\red{\textbf{Left:}} A sky map showing the total number of visits, in all filters, at the end of Year 1 for the \baselinefull observing strategy (Mollweide projection). 
     This sky map was generated using a \healpix \citep[Hierarchical Equal Area isoLatitude Pixelization; ][]{2005ApJ...622..759G}  resolution of \nside = 256.
     The plots are centered on right ascension $\alpha = 0$ and declination $\delta = 0$ degrees. RA and Dec lines are marked every 30$^\circ$.
-    The main sky regions of the survey are labeled as follows: Low-dust \glsfirst*{wfd}, \glsfirst*{nes}, \glsfirst*{gp} \gls*{wfd}, Dusty (Galactic) Plane, South Celestial Pole (SCP), \glsreset{ddf}\glspl*{ddf} and the Virgo cluster.
-    \red{Add additional figure with boundaries (and LMC SMC), remove the labels from number of visits map.}
+    The main sky regions of the survey are \red{labelled} as follows: \red{Low-dust \glsreset{wfd}\gls*{wfd}, \glsreset{nes}\gls*{nes}, \glsreset{gp}\gls*{gp} \gls*{wfd}, Dusty (Galactic) Plane, South Celestial Pole (SCP), \glsreset{ddf}\glspl*{ddf} and the Virgo cluster.}
+    \red{\textbf{Right:} The colour map denotes the on-sky extent of the different survey regions.}
     }
     \label{fig:baseline_labels}
-			\end{center}
+			% \end{center}
 		\end{figure}
   
 	% baseline sky maps
@@ -312,7 +316,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
  A similar strategy has been successfully employed in the Subaru Telescope's Hyper Suprime-Cam Survey data reduction pipelines \citep{2018PASJ...70S...5B}. 
  
 	
-	The \gls*{lsst} data management pipelines divide the sky into \sout{an overlapping grid of} \hl{a common pixel grid of overlapping} square 1.6$^{\circ} \times 1.6^{\circ}$ tiles, dubbed ``tracts," which are themselves subdivided into $7 \times 7$ ``patches" \citep[see Figure \ref{fig:tractsandpatches} and][]{2018PASJ...70S...5B, LDM-151}. 
+	The \gls*{lsst} data management pipelines divide the sky into \sout{an overlapping grid of} \red{a common pixel grid of overlapping} square 1.6$^{\circ} \times 1.6^{\circ}$ tiles, dubbed ``tracts," which are themselves subdivided into $7 \times 7$ ``patches" \citep[see Figure \ref{fig:tractsandpatches} and][]{2018PASJ...70S...5B, LDM-151}. 
 	It takes nine tracts to fully cover a single \gls*{lsstcam} pointing, which spans 3.5 deg$^2$. A single patch is the approximate size of an \gls*{lsstcam} CCD detector with dimensions of 13.7$^{\prime} \times 13.7^{\prime}$. A patch is comprised of 4100$\times$4100 pixels with a pixel scale of 0.2\arcsec per pixel, matching that of \gls*{lsstcam} \citep{2019ApJ...873..111I,LDM-151}, and each patch overlaps by 100 pixels on a side with their neighboring patches.  For a detailed overview of tracts and patches, we refer the reader to the summary paper for the Rubin Observatory's Data Preview 0.2/Dark Energy Science Collaboration (DESC) Data Challenge 2 (DC2) \citep{2021ApJS..253...31L}.  
 	% https://www6.slac.stanford.edu/lsst
 	
@@ -492,24 +496,24 @@ We can then examine the change in these calculated metrics relative to another \
 To assess variations of the \gls*{lsst} observing strategy over the full 10 year survey, \cite{schwambTuningLegacySurvey2023} primarily used three sets of metrics (discovery, light-curve, and color light-curve) that represent the top scientific priorities of the \gls*{lsst} \gls*{sssc}, reflected in their Science Roadmap \citep{2018arXiv180201783S}, namely orbit characterization, surface color/composition study, and rotational light-curve analysis. 
 When focusing on Year 1 and the impact of different template building strategies, it is not necessarily informative to apply the exact same metrics used to evaluate the entire \gls*{lsst} performance when the number of visits is one tenth of the full survey. 
 Across most of the \gls*{lsst} footprint, the light-curve and color light-curve metrics applied in \cite{schwambTuningLegacySurvey2023} require more observations than will be available in Year 1, but the criteria to discover new \glspl*{sso} is the same in Year 1 \sout{as} as it is expected to be in Year 10 of the \gls*{lsst}. 
-Therefore, we apply the same discovery \maf metric applied in \cite{schwambTuningLegacySurvey2023} which examines which of the simulated objects meet the \gls*{ssp} detection criteria, i.e.\ 3 nightly pairs of observations within 15 days\sout{, but we}\hl{. In this work we} do not focus on the \sout{same} light-curve and color light-curve metrics \sout{for this work} \hl{as one year of survey data is generally insufficient to determine these properties}. 
+Therefore, we apply the same discovery \maf metric applied in \cite{schwambTuningLegacySurvey2023} which examines which of the simulated objects meet the \gls*{ssp} detection criteria, i.e.\ 3 nightly pairs of observations within 15 days\sout{, but we}\red{. In this work we} do not focus on the \sout{same} light-curve and color light-curve metrics \sout{for this work} \red{as one year of survey data is generally insufficient to determine these properties}. 
 % Instead, we have selected a different metric to explore the availability of early broad-band color estimates in Year 1 with varying template building timescales. 
-\red{Instead, we choose a color metric that uses the fraction of objects that have 10 \gls*{snr} weighted detections per filter in four filters from the set of $grizy$\footnote{$u$-band observations are not considered as most \glspl*{sso} are faint at this wavelength \citep[e.g.;][]{2013Icar..226..723D,2008ssbn.book..181F}, and the planned number of $u$-band visits are low compared to the other filters \citep{SCOC_Report_3}}. 
+\sout{Instead, we choose a color metric that uses the fraction of objects that have 10 \gls*{snr} weighted detections per filter in four filters from the set of $grizy$\footnote{$u$-band observations are not considered as most \glspl*{sso} are faint at this wavelength \citep[e.g.;][]{2013Icar..226..723D,2008ssbn.book..181F}, and the planned number of $u$-band visits are low compared to the other filters \citep{SCOC_Report_3}}. 
 This allows us to get an estimate of how many objects have good surface color estimates and absolute magnitudes in Year 1. 
 This is because broad-band optical colors have been previously used to divide asteroids observed by the Sloan Digital Sky Survey (SDSS) Moving Object Catalog \citep{2001AJ....122.2749I,2002AJ....124.2943I,juricComparisonPositionsMagnitudes2002} into surface taxonomies \citep{2013Icar..226..723D,sergeyevMillionAsteroidObservations2021}. 
 In this metric an object is considered to have a reliable absolute magnitude and phase function in a given filter if it is detected in that filter with at least 10 \gls*{snr}-weighted observations. 
-For the $n$ observations of a small body in a given filter, the number of \gls*{snr}-weighted observations ($N_w$) is calculated as a weighted sum where:
+For the $n$ observations of a small body in a given filter, the number of \gls*{snr}-weighted observations ($N_w$) is calculated as a weighted sum where:}
 \begin{equation}
-	N_w =  \sum_{i=1}^n\frac{\texttt{min}(\mathrm{SNR}_i, 20)}{20}
+	\sout{$N_w =  \sum_{i=1}^n\frac{\texttt{min}(\mathrm{SNR}_i, 20)}{20}$}
 \end{equation}
-This formulation means that observations with \gls*{snr} $\ge$20 contribute to the sum with a weight of 1.
+\sout{This formulation means that observations with \gls*{snr} $\ge$20 contribute to the sum with a weight of 1.
 Observations with \gls*{snr} $<20$ can be used, but then $n>10$ observations will be required to determine a reliable color.}
 
 We chose to calculate the Year 1 \gls*{sso} metrics for the main solar system populations: the \glsreset{pha}\glspl*{pha}, \glsreset{neo}\glspl*{neo}, \glsreset{mba}\glspl*{mba}, \glsreset{tno}\glspl*{tno}, and \glsreset{occ}\glspl*{occ} used and described in \cite{schwambTuningLegacySurvey2023}. 
 % The model orbital distributions are described in \cite{schwambTuningLegacySurvey2023}. 
 We note that the \glspl*{occ} are divided into two subgroups: distant comets with perihelion ($q$) $\le$ 20\ au (labeled as \occrtwenty) and those that come in closer to the Sun with $q \le$ 5\ au (labeled as \occrfive). % OCC_r20 and OCC_r5
 Given the small numbers of Jupiter Trojans and \textquotesingle Ayl\'{o}\textquotesingle chaxnims \citep[Inner Venus objects;][]{bolinDiscoveryCharacterizationKilometre2022,2025Icar..42516333B} expected to be discovered in Year 1, we do not include them in our analysis. 
-\sout{For both the discovery and color metrics,} \hl{For the discovery metrics} we calculate two values for each population: one that samples the larger (brighter) objects in the population, and one for sampling the smaller (fainter) objects in the pipeline, tailoring the $H$ thresholds to the value most representative for the given population. 
+\sout{For both the discovery and color metrics,} \red{For the discovery metrics} we calculate two values for each population: one that samples the larger (brighter) objects in the population, and one for sampling the smaller (fainter) objects in the pipeline, tailoring the $H$ thresholds to the value most representative for the given population. 
 The full list of \maf metrics used in this work are presented in Table \ref{tab:metrics}. 
 \sout{Given the apparent magnitude distribution of the \glspl*{tno} and \glspl*{occ}, and the small subset of objects simulated for the \maf metrics calculations, the value of the color metric is expected to be 0 in the first year for outer \glspl*{sso} \citep{schwambTuningLegacySurvey2023}. 
 Therefore we calculate this metric only for the Inner Solar System populations: the \glspl*{neo}, \glspl*{pha}, and \glspl*{mba}.} 		
@@ -547,17 +551,17 @@ Therefore we calculate this metric only for the Inner Solar System populations: 
 			\multirow{2}{*}{OCCs  with $q\leq$ 20 au}   &  3 nightly pairs in 15 nights discovery completeness for $H\leq$ 8.0 \\
 			& 3 nightly pairs in 15 nights discovery completeness  for $H\leq$ 12.0 \\ 
 			\hline
-			\multicolumn{2}{c}{\red{Color Metrics}} \\
-			\hline
-			\hline 
-   			\multirow{2}{*}{PHAs} & Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
-			&  Fraction of $H$ = 19.0 likely to obtain colors in 4 filters of $grizy$  \\
-			\hline
-			\multirow{2}{*}{NEOs} & Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
-			&  Fraction of $H$ = 19.0 likely to obtain colors in 4 filters of $grizy$  \\
-			\hline
-			\multirow{2}{*}{MBAs} &  Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
-			&  Fraction of $H$ = 18.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% \multicolumn{2}{c}{Color Metrics} \\
+			% \hline
+			% \hline 
+   % 			\multirow{2}{*}{PHAs} & Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% &  Fraction of $H$ = 19.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% \hline
+			% \multirow{2}{*}{NEOs} & Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% &  Fraction of $H$ = 19.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% \hline
+			% \multirow{2}{*}{MBAs} &  Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
+			% &  Fraction of $H$ = 18.0 likely to obtain colors in 4 filters of $grizy$  \\
 			\enddata
 		\end{deluxetable}
 		
@@ -1012,7 +1016,7 @@ Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled
 		    For those observations that have sufficient template coverage at the time of the exposure, we can analyse the Year 1 \gls*{sso} metrics, considering only visits that had a fractional template coverage of $\geq 90 \%$, as discussed in Section \ref{sec:template_coverage} above.	
 		Figure \ref{fig:temp_gen_discovery_metrics} shows the results for the discovery metric of objects with 3 pairs of detections over a 15 night period.
 		As described in Section \ref{sec:applying_maf_metrics}, we have considered a range of dynamical populations: \glspl*{mba}, \glspl*{neo}, \glspl*{pha}, \glspl*{tno} and \glspl*{occ}, with maximum perihelion distance of 5 au (\occrfive) and 20 au (\occrtwenty).
-  The different orbits and physical properties of these distinct populations have a strong influence on \hl{their} discovery \sout{and characterization}.
+  The different orbits and physical properties of these distinct populations have a strong influence on \red{their} discovery \sout{and characterization}.
   The metrics are divided into two components looking at the absolute magnitude bins that represent the ``bright'' and ``faint'' objects of each dynamical population (see Table \ref{tab:metrics}) in order to assess the effects for large and small \glspl*{sso} separately.
 		
         We present the metric results of each template generation timescale relative to the default \baseline cadence simulation where the presence of templates is implicitly assumed (i.e.\ all visits are capable of making \gls*{sso} detections and alerts).
@@ -1032,16 +1036,15 @@ Accordingly the drop in discoveries is far greater for the Dec $\geq 0^{\circ}$ 
 This demonstrates that losses in the \gls*{nes} region are dominating the overall reduction in \gls*{sso} discoveries during Year 1, whereas the areas of the ecliptic sampled by the \gls*{wfd} are not as severely impacted.
 In Year 1 the \gls*{nes} receives $\sim75\%$ fewer visits than the \gls*{wfd}; this means that losing $\geq4$ visits to templates is a greater proportional loss, which results in a larger fraction of missed \gls*{sso} detections.
 % This is because the smaller number of visits in the \gls*{nes} compared to the \gls*{wfd} means that losing $\geq4$ visits to templates is a greater proportional loss, causing a larger fraction of missed \gls*{sso} detections.
-		
-  		\red{In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.
-		As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.
+\sout{In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.}
+		\sout{As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.}
 		% \textbf{TNOs and OCCs do not get any colors when templates are considered.}
-When considering only observations made in Year 1, the color metric values for the nominal \baseline survey sit at only $\sim10\%$ for \glspl*{mba} and $\sim4\%$ for the \glspl*{neo} and \glspl*{pha}.
-  The color characterization metric drops dramatically when template generation is required, to values of $<1\%$.
-This is not surprising given that this metric requires a larger number of detections (across multiple filters) compared to the minimum of 6 detections (in any filter) for discovery.
-  Colors are useful for approximating the composition of an \gls*{sso}, but this result implies that during Year 1 we will only be able to measure colors for a small fraction of objects.
-  However, as long as the objects are discovered and alerts are issued by \gls*{lsst} then the loss of color information can be minimised by follow-up observations of the most interesting \glspl*{sso} using other facilities.
-  We note that, of course, the problem of template generation still stands when considering that rapid \gls*{sso} alerts are required to enable timely follow-up observations in Year 1. }
+\sout{When considering only observations made in Year 1, the color metric values for the nominal \baseline survey sit at only $\sim10\%$ for \glspl*{mba} and $\sim4\%$ for the \glspl*{neo} and \glspl*{pha}.
+  The color characterization metric drops dramatically when template generation is required, to values of $<1\%$.}
+\sout{This is not surprising given that this metric requires a larger number of detections (across multiple filters) compared to the minimum of 6 detections (in any filter) for discovery.}
+  \sout{Colors are useful for approximating the composition of an \gls*{sso}, but this result implies that during Year 1 we will only be able to measure colors for a small fraction of objects.}
+  \sout{However, as long as the objects are discovered and alerts are issued by \gls*{lsst} then the loss of color information can be minimised by follow-up observations of the most interesting \glspl*{sso} using other facilities.}
+  \sout{We note that, of course, the problem of template generation still stands when considering that rapid \gls*{sso} alerts are required to enable timely follow-up observations in Year 1. }
 		
 		In Figure \ref{fig:completeness_over_time}, we consider in more detail how the cumulative completeness (that is the fraction of objects in the sample that have been discovered) increases as a function of survey time.
   Compared to the baseline, discoveries for all populations (and all $\Delta t$) are delayed by approximately 70 days.
@@ -1154,7 +1157,7 @@ Future investigations should account for any changes to the survey schedule as t
 			 Across all the metrics we evaluated, a monthly template strategy performs the worst. A 3 day/7 day turnaround time for template production provides the most opportunities to identify transient sources in \gls*{lsst} observations in real-time and results in more uniform coverage across the sky. 
    
 
-			\item \hl{Solar system discoverability metrics} \sout{Both solar system discoverability and color metrics} are significantly affected by template generation, with the shorter template generation timescales performing slightly better. 
+			\item \red{Solar system discoverability metrics} \sout{Both solar system discoverability and color metrics} are significantly affected by template generation, with the shorter template generation timescales performing slightly better. 
 			 The discovery metrics across all dynamical populations tested here have a $\gtrsim28\%$ decrease compared to the nominal Year 1 baseline metrics. The \gls*{mba} discovery metrics are impacted the most with a drop $>40\%$ for the larger ($H \leq$ 16) objects and $>60\%$ for the smaller asteroids ($H \leq$ 21). 
 			 \sout{The inner solar system color metrics are impacted more severely than the discovery metrics. There is a drop of more than $90\%$ compared to the nominal Year 1 baseline for the \gls*{mba}, \gls*{neo}, and \gls*{pha} populations.} 
 
@@ -1166,7 +1169,7 @@ Future investigations should account for any changes to the survey schedule as t
                 		\end{itemize}
 
 		Without modifications to the baseline (\baseline) Year 1 observing strategy, there will still be some \gls*{lsst} observations with suitable templates made as the survey progresses to allow image subtraction and alert generation within 60\ s of image readout, enabling the \gls*{rpp} and \gls*{ssp} pipelines to run and generate nightly solar system discoveries/alerts.
-  But there is a non-negligible hit to real-time detection \sout{and characterization} of \hl{small} solar system \sout{small} bodies. 
+  But there is a non-negligible hit to real-time detection \sout{and characterization} of \red{small} solar system \sout{small} bodies. 
   The change in \maf metrics is much higher than the 5$\%$ difference from the baseline strategy deemed acceptable in the evaluation of cadence parameters for optimizing \gls*{lsst} solar system System science by \cite{schwambTuningLegacySurvey2023}. 
   For each simulated small body population investigated here, the larger objects are impacted less because they are typically brighter in apparent magnitude and thus more likely to be detectable in most or all of the \gls*{lsst} observations that they are present in. 
   Smaller (and typically fainter) objects require more chances to be able to detect them, and thus are impacted more severely by incremental template generation strategies. 
