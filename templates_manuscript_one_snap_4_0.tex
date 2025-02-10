@@ -20,6 +20,8 @@
 \usepackage[acronym,nonumberlist]{glossaries}
 % extra symbols
 \usepackage{textcomp}
+% highlight text
+\usepackage{color,soul}
 
 
 % aliases
@@ -197,9 +199,9 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
     But this will limit the opportunities for immediate time-sensitive follow-up that would have been enabled if the \glspl*{sso} discoveries were announced and preliminary orbits were available in the \gls*{mpc}.
  \cite{2021RNAAS...5..143S} highlights some of the high-impact solar system science enabled by Year 1 \gls*{lsst} incremental template generation, such as the follow-up with ground- and space-based telescopes of \glspl*{iso} passing through the solar system or \glspl*{pha} for planetary defence, in addition to catching cometary outbursts and temporary Earth satellites \citep[known as ``mini-moons'',][]{bolinCharacterizationTemporarilyCaptured2020,fedoretsEstablishingEarthMinimoon2020}. 
 	\cite{schwambTuningLegacySurvey2023} examined how the \gls*{lsst} observing strategy parameters can be tuned to improve or benefit solar system science over the ten years of the survey and demonstrated the importance of evaluating various strategies for producing templates in Year 1 of Rubin operations. 
- In recent years, the Rubin Observatory \gls*{scoc} has come to a consensus for the majority of significant observing strategy decisions \citep{SCOC_Report_1, SCOC_Report_2,SCOC_Report_3}. Now we can begin to focus on the expectations for the discovery and characterization of \glspl*{sso} during the first year of the survey and start exploring the trade-offs and benefits of potentially boosting incremental template production in Year 1 of \gls*{lsst}. 
+ In recent years, the Rubin Observatory \gls*{scoc} has come to a consensus for the majority of significant observing strategy decisions \citep{SCOC_Report_1, SCOC_Report_2,SCOC_Report_3}. Now we can begin to focus on the expectations for the discovery \sout{and characterization} of \glspl*{sso} during the first year of the survey and start exploring the trade-offs and benefits of potentially boosting incremental template production in Year 1 of \gls*{lsst}. 
  
- In this work, we investigate the generation of templates during Year 1 of \gls*{lsst} and assess the impact on \gls*{sso} discovery and characterization metrics compared to the nominal \gls*{lsst} cadence simulation \maf metrics  (where the existence of templates is assumed). 
+ In this work, we investigate the generation of templates during Year 1 of \gls*{lsst} and assess the impact on \gls*{sso} discovery \sout{and characterization} metrics compared to the nominal \gls*{lsst} cadence simulation \maf metrics  (where the existence of templates is assumed). 
  In Section \ref{sec:methods}, we present our methodology for analysing the \baselinefull Rubin cadence simulation, % to identify which observations have an available generated template corresponding to their location in the sky. 
  in order to identify which visits had an available template image at the time of observation.
  % The output from our technique would allow for the templates to be applied to the observations and generate transient alerts and potentially \gls*{sso} detections. 
@@ -256,6 +258,7 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
     This sky map was generated using a \healpix \citep[Hierarchical Equal Area isoLatitude Pixelization; ][]{2005ApJ...622..759G}  resolution of \nside = 256.
     The plots are centered on right ascension $\alpha = 0$ and declination $\delta = 0$ degrees. RA and Dec lines are marked every 30$^\circ$.
     The main sky regions of the survey are labeled as follows: Low-dust \glsfirst*{wfd}, \glsfirst*{nes}, \glsfirst*{gp} \gls*{wfd}, Dusty (Galactic) Plane, South Celestial Pole (SCP), \glsreset{ddf}\glspl*{ddf} and the Virgo cluster.
+    \red{Add additional figure with boundaries (and LMC SMC), remove the labels from number of visits map.}
     }
     \label{fig:baseline_labels}
 			\end{center}
@@ -309,7 +312,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
  A similar strategy has been successfully employed in the Subaru Telescope's Hyper Suprime-Cam Survey data reduction pipelines \citep{2018PASJ...70S...5B}. 
  
 	
-	The \gls*{lsst} data management pipelines divide the sky into an overlapping grid of square 1.6$^{\circ} \times 1.6^{\circ}$ tiles, dubbed ``tracts," which are themselves subdivided into $7 \times 7$ ``patches" \citep[see Figure \ref{fig:tractsandpatches} and][]{2018PASJ...70S...5B, LDM-151}. 
+	The \gls*{lsst} data management pipelines divide the sky into \sout{an overlapping grid of} \hl{a common pixel grid of overlapping} square 1.6$^{\circ} \times 1.6^{\circ}$ tiles, dubbed ``tracts," which are themselves subdivided into $7 \times 7$ ``patches" \citep[see Figure \ref{fig:tractsandpatches} and][]{2018PASJ...70S...5B, LDM-151}. 
 	It takes nine tracts to fully cover a single \gls*{lsstcam} pointing, which spans 3.5 deg$^2$. A single patch is the approximate size of an \gls*{lsstcam} CCD detector with dimensions of 13.7$^{\prime} \times 13.7^{\prime}$. A patch is comprised of 4100$\times$4100 pixels with a pixel scale of 0.2\arcsec per pixel, matching that of \gls*{lsstcam} \citep{2019ApJ...873..111I,LDM-151}, and each patch overlaps by 100 pixels on a side with their neighboring patches.  For a detailed overview of tracts and patches, we refer the reader to the summary paper for the Rubin Observatory's Data Preview 0.2/Dark Energy Science Collaboration (DESC) Data Challenge 2 (DC2) \citep{2021ApJS..253...31L}.  
 	% https://www6.slac.stanford.edu/lsst
 	
@@ -474,7 +477,7 @@ We have also recorded the number of nights between template generation and the f
   To this end, whilst simulating template generation as described above, \maf was used to count the number of constituent healpixels within each visit in the period $t_{n-1} < t < t_n$ that already had a template at $t_{n-1}$.
   From the number of template healpixels we calculated the fractional template coverage of each visit (see Section \ref{sec:template_coverage}) assuming an \gls*{lsstcam} \gls*{fov} of 9.6 deg$^2$ and healpixel area of $5.25\e{-2}\ \mathrm{deg}^2$ for \texttt{nside} = 256.
   % This value is stored as an additional column in the \baseline pointing database.
-  For discovering and characterizing \glspl*{sso}, we only run solar system \maf metrics on observations where the majority of the image area is available for template generation. For this study, we create a redacted  \baseline pointing database, where visits with $<$ 90$\%$ template coverage have been removed, and use this to calculate a subset of \maf solar system metrics.  We discuss the validity of selecting a threshold value of 90$\%$  template coverage in Section \ref{sec:template_coverage}.
+  For discovering \sout{and characterizing} \glspl*{sso}, we only run solar system \maf metrics on observations where the majority of the image area is available for template generation. For this study, we create a redacted  \baseline pointing database, where visits with $<$ 90$\%$ template coverage have been removed, and use this to calculate a subset of \maf solar system metrics.  We discuss the validity of selecting a threshold value of 90$\%$  template coverage in Section \ref{sec:template_coverage}.
   
 
 \maf is able to calculate a wide range of metrics related to solar system science, in order to evaluate the performance of the planned \gls*{lsst} observing cadence and the impact of tuning various survey strategy parameters in the Rubin scheduler. The detailed methodology for how the solar system metrics are calculated is described in \cite{schwambTuningLegacySurvey2023}; we provide a brief overview here. 
@@ -483,15 +486,15 @@ Each orbit is then cloned for a range of absolute magnitude ($H$) bins, and broa
 For each synthetic small body, ephemerides are generated and used to determine in which of the simulated \gls*{lsst} observations will the ``object" be positioned within the camera footprint, if any. 
 For those objects within an observation's \gls*{lsstcam} \gls*{fov}, the apparent magnitude is calculated and combined with other relevant information about the visit stored in the \rubinsim simulated pointing database to determine whether the synthetic object would be bright enough for the \gls*{rpp} pipelines to detect. 
 Using this data \maf can calculate the fraction of successfully detected simulated objects in a given absolute magnitude bin that meets a specific metric criteria, which depend on the number and cadence of observations, coverage in certain filters, etc. 
-We can then examine the change in these calculated metrics relative to another \rubinsim cadence simulation and use that output as a proxy to understand the impact of observing strategy changes on the discoverability and characterization of the simulated small body population.  
+We can then examine the change in these calculated metrics relative to another \rubinsim cadence simulation and use that output as a proxy to understand the impact of observing strategy changes on the discoverability \sout{and characterization} of the simulated small body population.  
 
 
 To assess variations of the \gls*{lsst} observing strategy over the full 10 year survey, \cite{schwambTuningLegacySurvey2023} primarily used three sets of metrics (discovery, light-curve, and color light-curve) that represent the top scientific priorities of the \gls*{lsst} \gls*{sssc}, reflected in their Science Roadmap \citep{2018arXiv180201783S}, namely orbit characterization, surface color/composition study, and rotational light-curve analysis. 
 When focusing on Year 1 and the impact of different template building strategies, it is not necessarily informative to apply the exact same metrics used to evaluate the entire \gls*{lsst} performance when the number of visits is one tenth of the full survey. 
-Across most of the \gls*{lsst} footprint, the light-curve and color light-curve metrics applied in \cite{schwambTuningLegacySurvey2023} require more observations than will be available in Year 1, but the criteria to discover new \glspl*{sso} is the same in Year 1 as as it is expected to be in Year 10 of the \gls*{lsst}. 
-Therefore, we apply the same discovery \maf metric applied in \cite{schwambTuningLegacySurvey2023} which examines which of the simulated objects meet the \gls*{ssp} detection criteria, i.e.\ 3 nightly pairs of observations within 15 days, but we do not focus on the same light-curve and color light-curve metrics for this work. 
+Across most of the \gls*{lsst} footprint, the light-curve and color light-curve metrics applied in \cite{schwambTuningLegacySurvey2023} require more observations than will be available in Year 1, but the criteria to discover new \glspl*{sso} is the same in Year 1 \sout{as} as it is expected to be in Year 10 of the \gls*{lsst}. 
+Therefore, we apply the same discovery \maf metric applied in \cite{schwambTuningLegacySurvey2023} which examines which of the simulated objects meet the \gls*{ssp} detection criteria, i.e.\ 3 nightly pairs of observations within 15 days\sout{, but we}\hl{. In this work we} do not focus on the \sout{same} light-curve and color light-curve metrics \sout{for this work} \hl{as one year of survey data is generally insufficient to determine these properties}. 
 % Instead, we have selected a different metric to explore the availability of early broad-band color estimates in Year 1 with varying template building timescales. 
-Instead, we choose a color metric that uses the fraction of objects that have 10 \gls*{snr} weighted detections per filter in four filters from the set of $grizy$\footnote{$u$-band observations are not considered as most \glspl*{sso} are faint at this wavelength \citep[e.g.;][]{2013Icar..226..723D,2008ssbn.book..181F}, and the planned number of $u$-band visits are low compared to the other filters \citep{SCOC_Report_3}}. 
+\red{Instead, we choose a color metric that uses the fraction of objects that have 10 \gls*{snr} weighted detections per filter in four filters from the set of $grizy$\footnote{$u$-band observations are not considered as most \glspl*{sso} are faint at this wavelength \citep[e.g.;][]{2013Icar..226..723D,2008ssbn.book..181F}, and the planned number of $u$-band visits are low compared to the other filters \citep{SCOC_Report_3}}. 
 This allows us to get an estimate of how many objects have good surface color estimates and absolute magnitudes in Year 1. 
 This is because broad-band optical colors have been previously used to divide asteroids observed by the Sloan Digital Sky Survey (SDSS) Moving Object Catalog \citep{2001AJ....122.2749I,2002AJ....124.2943I,juricComparisonPositionsMagnitudes2002} into surface taxonomies \citep{2013Icar..226..723D,sergeyevMillionAsteroidObservations2021}. 
 In this metric an object is considered to have a reliable absolute magnitude and phase function in a given filter if it is detected in that filter with at least 10 \gls*{snr}-weighted observations. 
@@ -500,20 +503,20 @@ For the $n$ observations of a small body in a given filter, the number of \gls*{
 	N_w =  \sum_{i=1}^n\frac{\texttt{min}(\mathrm{SNR}_i, 20)}{20}
 \end{equation}
 This formulation means that observations with \gls*{snr} $\ge$20 contribute to the sum with a weight of 1.
-Observations with \gls*{snr} $<20$ can be used, but then $n>10$ observations will be required to determine a reliable color.
+Observations with \gls*{snr} $<20$ can be used, but then $n>10$ observations will be required to determine a reliable color.}
 
 We chose to calculate the Year 1 \gls*{sso} metrics for the main solar system populations: the \glsreset{pha}\glspl*{pha}, \glsreset{neo}\glspl*{neo}, \glsreset{mba}\glspl*{mba}, \glsreset{tno}\glspl*{tno}, and \glsreset{occ}\glspl*{occ} used and described in \cite{schwambTuningLegacySurvey2023}. 
 % The model orbital distributions are described in \cite{schwambTuningLegacySurvey2023}. 
 We note that the \glspl*{occ} are divided into two subgroups: distant comets with perihelion ($q$) $\le$ 20\ au (labeled as \occrtwenty) and those that come in closer to the Sun with $q \le$ 5\ au (labeled as \occrfive). % OCC_r20 and OCC_r5
 Given the small numbers of Jupiter Trojans and \textquotesingle Ayl\'{o}\textquotesingle chaxnims \citep[Inner Venus objects;][]{bolinDiscoveryCharacterizationKilometre2022,2025Icar..42516333B} expected to be discovered in Year 1, we do not include them in our analysis. 
-For both the discovery and color metrics, we calculate two values for each population: one that samples the larger (brighter) objects in the population, and one for sampling the smaller (fainter) objects in the pipeline, tailoring the $H$ thresholds to the value most representative for the given population. 
+\sout{For both the discovery and color metrics,} \hl{For the discovery metrics} we calculate two values for each population: one that samples the larger (brighter) objects in the population, and one for sampling the smaller (fainter) objects in the pipeline, tailoring the $H$ thresholds to the value most representative for the given population. 
 The full list of \maf metrics used in this work are presented in Table \ref{tab:metrics}. 
-Given the apparent magnitude distribution of the \glspl*{tno} and \glspl*{occ}, and the small subset of objects simulated for the \maf metrics calculations, the value of the color metric is expected to be 0 in the first year for outer \glspl*{sso} \citep{schwambTuningLegacySurvey2023}. 
-Therefore we calculate this metric only for the Inner Solar System populations: the \glspl*{neo}, \glspl*{pha}, and \glspl*{mba}. 		
+\sout{Given the apparent magnitude distribution of the \glspl*{tno} and \glspl*{occ}, and the small subset of objects simulated for the \maf metrics calculations, the value of the color metric is expected to be 0 in the first year for outer \glspl*{sso} \citep{schwambTuningLegacySurvey2023}. 
+Therefore we calculate this metric only for the Inner Solar System populations: the \glspl*{neo}, \glspl*{pha}, and \glspl*{mba}.} 		
 		
 		
 		\begin{deluxetable}{ll}
-			\tablecaption{Solar System Object discovery and color characterization \maf metrics used in this analysis.
+			\tablecaption{Solar System Object discovery \sout{and color characterization} \maf metrics used in this analysis.
    These metrics are calculated for the ``bright'' and ``faint'' components of each population, defined by absolute magnitude $H$.
    }
 
@@ -544,7 +547,7 @@ Therefore we calculate this metric only for the Inner Solar System populations: 
 			\multirow{2}{*}{OCCs  with $q\leq$ 20 au}   &  3 nightly pairs in 15 nights discovery completeness for $H\leq$ 8.0 \\
 			& 3 nightly pairs in 15 nights discovery completeness  for $H\leq$ 12.0 \\ 
 			\hline
-			\multicolumn{2}{c}{Color Metrics} \\
+			\multicolumn{2}{c}{\red{Color Metrics}} \\
 			\hline
 			\hline 
    			\multirow{2}{*}{PHAs} & Fraction of $H$ = 16.0 likely to obtain colors in 4 filters of $grizy$  \\
@@ -1004,12 +1007,12 @@ Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled
 			\end{center}
 		\end{figure}
 		
-		\subsection{Solar System Discovery and Color Metrics}
+		\subsection{Solar System Discovery \sout{and Color} Metrics}
 		\label{sec:sso_metrics}
 		    For those observations that have sufficient template coverage at the time of the exposure, we can analyse the Year 1 \gls*{sso} metrics, considering only visits that had a fractional template coverage of $\geq 90 \%$, as discussed in Section \ref{sec:template_coverage} above.	
 		Figure \ref{fig:temp_gen_discovery_metrics} shows the results for the discovery metric of objects with 3 pairs of detections over a 15 night period.
 		As described in Section \ref{sec:applying_maf_metrics}, we have considered a range of dynamical populations: \glspl*{mba}, \glspl*{neo}, \glspl*{pha}, \glspl*{tno} and \glspl*{occ}, with maximum perihelion distance of 5 au (\occrfive) and 20 au (\occrtwenty).
-  The different orbits and physical properties of these distinct populations have a strong influence on discovery and characterization.
+  The different orbits and physical properties of these distinct populations have a strong influence on \hl{their} discovery \sout{and characterization}.
   The metrics are divided into two components looking at the absolute magnitude bins that represent the ``bright'' and ``faint'' objects of each dynamical population (see Table \ref{tab:metrics}) in order to assess the effects for large and small \glspl*{sso} separately.
 		
         We present the metric results of each template generation timescale relative to the default \baseline cadence simulation where the presence of templates is implicitly assumed (i.e.\ all visits are capable of making \gls*{sso} detections and alerts).
@@ -1030,7 +1033,7 @@ This demonstrates that losses in the \gls*{nes} region are dominating the overal
 In Year 1 the \gls*{nes} receives $\sim75\%$ fewer visits than the \gls*{wfd}; this means that losing $\geq4$ visits to templates is a greater proportional loss, which results in a larger fraction of missed \gls*{sso} detections.
 % This is because the smaller number of visits in the \gls*{nes} compared to the \gls*{wfd} means that losing $\geq4$ visits to templates is a greater proportional loss, causing a larger fraction of missed \gls*{sso} detections.
 		
-  		In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.
+  		\red{In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.
 		As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.
 		% \textbf{TNOs and OCCs do not get any colors when templates are considered.}
 When considering only observations made in Year 1, the color metric values for the nominal \baseline survey sit at only $\sim10\%$ for \glspl*{mba} and $\sim4\%$ for the \glspl*{neo} and \glspl*{pha}.
@@ -1038,7 +1041,7 @@ When considering only observations made in Year 1, the color metric values for t
 This is not surprising given that this metric requires a larger number of detections (across multiple filters) compared to the minimum of 6 detections (in any filter) for discovery.
   Colors are useful for approximating the composition of an \gls*{sso}, but this result implies that during Year 1 we will only be able to measure colors for a small fraction of objects.
   However, as long as the objects are discovered and alerts are issued by \gls*{lsst} then the loss of color information can be minimised by follow-up observations of the most interesting \glspl*{sso} using other facilities.
-  We note that, of course, the problem of template generation still stands when considering that rapid \gls*{sso} alerts are required to enable timely follow-up observations in Year 1. 
+  We note that, of course, the problem of template generation still stands when considering that rapid \gls*{sso} alerts are required to enable timely follow-up observations in Year 1. }
 		
 		In Figure \ref{fig:completeness_over_time}, we consider in more detail how the cumulative completeness (that is the fraction of objects in the sample that have been discovered) increases as a function of survey time.
   Compared to the baseline, discoveries for all populations (and all $\Delta t$) are delayed by approximately 70 days.
@@ -1053,8 +1056,8 @@ From the observing site the \gls*{nes} is observable by the survey for the first
 Further delays to the survey start date could reduce the amount of time available to observe the \gls*{nes} and have an even more dramatic effect on \gls*{sso} discoveries.
 Future investigations should account for any changes to the survey schedule as the timeline becomes more clear.
 		
-		The results of these \maf solar system metrics provide a more direct estimate of the effects of template generation on solar system science than simply looking at the sky area with templates considered in Section \ref{sec:template_coverage}. We caution the reader that these \maf metrics are for the total numbers of discovered and characterized \gls*{sso}, per simulated bin in absolute magnitude. It would require additional assumptions to convert the metrics into an absolute total number of objects, so we instead continue to examine the relative change to the baseline. 
-		We can clearly see that the requirements of template generation leads to large drops in the discovery and measurement of colors for the dynamical populations investigated.
+		The results of these \maf solar system metrics provide a more direct estimate of the effects of template generation on solar system science than simply looking at the sky area with templates considered in Section \ref{sec:template_coverage}. We caution the reader that these \maf metrics are for the total numbers of discovered \sout{and characterized} \glspl*{sso}, per simulated bin in absolute magnitude. It would require additional assumptions to convert the metrics into an absolute total number of objects, so we instead continue to examine the relative change to the baseline. 
+		We can clearly see that the requirements of template generation leads to large drops in \sout{the} discovery \sout{and measurement of colors} for the dynamical populations investigated.
 		If we consider the analysis in \cite{schwambTuningLegacySurvey2023}, they compared different survey strategies and stated that a $\pm5\%$ variation in a given metric (relative to the baseline survey at the time) would be acceptable for solar system science cases.
 		However these results show drops of $28-63\%$ in discovery relative to the baseline across all test populations (Figure \ref{fig:temp_gen_discovery_metrics}), alongside delays of $\gtrsim 60$ days before \gls*{sso} discoveries can be made (Figure \ref{fig:completeness_over_time}).
 		Altogether, these results highlight that the number and rate of ``real-time'' solar system discoveries in Year 1 will be significantly impacted by an incremental template generation strategy that builds templates from the regular LSST observations as the survey processes. The NES is expected to be the hardest hit region within the LSST footprint. 
@@ -1139,7 +1142,7 @@ Future investigations should account for any changes to the survey schedule as t
 		\label{sec:summary_conclusions}
 		
 		We have investigated the impact of incremental template generation in Year 1 of \gls*{lsst} using the \rubinsim simulated \baseline observing strategy and associated \gls*{lsst} \maf metrics. %, assuming that the Rubin scheduler executes the baseline strategy. 
-  Focusing on solar system discovery and characterization metrics, we used \maf to simulate the effects of generating templates in the first year of the survey.
+  Focusing on solar system discovery \sout{and characterization} metrics, we used \maf to simulate the effects of generating templates in the first year of the survey.
   This was done by dividing Year 1 into a series of template generation nights and counting the number of visits in each healpixel of the sky and establishing when the criteria for template generation was met.
   We utilised only observations from the main survey, i.e.\ excluding \gls*{ddf} and low-solar elongation twilight visits, assuming that there was no significant contribution of template-grade observations made during the commissioning of Rubin Observatory. 
   Having used a $\Delta t = $ 3, 7, 14, and 28 day template building cadence coupled with the requirement of $\geq90\%$ template coverage for each \gls*{lsst} observation, we summarize our findings below:
@@ -1151,9 +1154,9 @@ Future investigations should account for any changes to the survey schedule as t
 			 Across all the metrics we evaluated, a monthly template strategy performs the worst. A 3 day/7 day turnaround time for template production provides the most opportunities to identify transient sources in \gls*{lsst} observations in real-time and results in more uniform coverage across the sky. 
    
 
-			\item Both solar system discoverability and color metrics are significantly affected by template generation, with the shorter template generation timescales performing slightly better. 
+			\item \hl{Solar system discoverability metrics} \sout{Both solar system discoverability and color metrics} are significantly affected by template generation, with the shorter template generation timescales performing slightly better. 
 			 The discovery metrics across all dynamical populations tested here have a $\gtrsim28\%$ decrease compared to the nominal Year 1 baseline metrics. The \gls*{mba} discovery metrics are impacted the most with a drop $>40\%$ for the larger ($H \leq$ 16) objects and $>60\%$ for the smaller asteroids ($H \leq$ 21). 
-			 The inner solar system color metrics are impacted more severely than the discovery metrics. There is a drop of more than $90\%$ compared to the nominal Year 1 baseline for the \gls*{mba}, \gls*{neo}, and \gls*{pha} populations. 
+			 \sout{The inner solar system color metrics are impacted more severely than the discovery metrics. There is a drop of more than $90\%$ compared to the nominal Year 1 baseline for the \gls*{mba}, \gls*{neo}, and \gls*{pha} populations.} 
 
 			\item For all incremental template timescales, coverage in $u$-band and $g$-band visits lags significantly behind the other filters due to the small number of scheduled observations in these filters during Year 1. 
 			 Likewise, due to the reduced number of visits planned in the \gls*{nes} (compared to the \gls*{wfd}), a significant number of Year 1 \gls*{nes} visits will not have templates and will not be processed by the nightly \gls*{rpp} pipelines for identification of transient sources and moving \glspl*{sso}.
@@ -1163,7 +1166,7 @@ Future investigations should account for any changes to the survey schedule as t
                 		\end{itemize}
 
 		Without modifications to the baseline (\baseline) Year 1 observing strategy, there will still be some \gls*{lsst} observations with suitable templates made as the survey progresses to allow image subtraction and alert generation within 60\ s of image readout, enabling the \gls*{rpp} and \gls*{ssp} pipelines to run and generate nightly solar system discoveries/alerts.
-  But there is a non-negligible hit to real-time detection and characterization of solar system small bodies. 
+  But there is a non-negligible hit to real-time detection \sout{and characterization} of \hl{small} solar system \sout{small} bodies. 
   The change in \maf metrics is much higher than the 5$\%$ difference from the baseline strategy deemed acceptable in the evaluation of cadence parameters for optimizing \gls*{lsst} solar system System science by \cite{schwambTuningLegacySurvey2023}. 
   For each simulated small body population investigated here, the larger objects are impacted less because they are typically brighter in apparent magnitude and thus more likely to be detectable in most or all of the \gls*{lsst} observations that they are present in. 
   Smaller (and typically fainter) objects require more chances to be able to detect them, and thus are impacted more severely by incremental template generation strategies. 
@@ -1196,6 +1199,7 @@ This could result in extremely rare scientific discoveries, such as a briefly ob
 		Further \rubinsim simulations are needed to examine if, and how, the Rubin scheduler can be tuned to maximize template production over the Year 1 without significantly impacting the 10-year outputs of the survey. 
 		% Strategies to boost the $g$ and $u$ template production rates in Year 1 should also be considered.
   It is important for the community and the \gls*{scoc} to explore possible modifications to the Year 1 observing cadence  that may significantly boost template production, such as earmarking a small amount of Year 1 observing time for template building. 
+  \red{LIST SOME OTHER OPTIONS HERE. In Year 1, shift time from less-affected regions (e.g.\ \gls*{wfd}) to strongly affected regions \gls*{nes}. Likewise, shift time from well observed filters into $u$, $g$. Sacrificing some survey strategies during Year 1, e.g.\  the twilight survey and any scheduled triplet observations. Also assess to what template coverage it is possible to build up with commissioning data.}
 Other alternatives to boost the number of observations in the \gls*{nes} in Year 1 should be explored. 
 Closely following from this work, Schwamb et al. (in prep.) investigates possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.
 
@@ -1243,7 +1247,7 @@ R.L.J. and P.Y. provided valuable example code and advice from which the project
 
 M.J. contributed significantly to the initial discussions about the implementation of the incremental templates to the LSST observing strategy cadence simulation as well contributing to discussions involving early results with previous LSST survey strategy simulations. 
 
-W.C.F. and S.R.C. contributed to the development of the color \maf metrics. They also provided feedback on the overall manuscript. 
+W.C.F. and S.R.C. contributed to the development of the \sout{color} \maf metrics. They also provided feedback on the overall manuscript. 
 
 J.K.P. provided guidance on the process of incremental template generation in the Rubin data management system and the incremental template generation strategy involved in Rubin DP 0.2/DESC DC2 . He also provided Figure \ref{fig:randompatch}.
 
