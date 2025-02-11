@@ -636,7 +636,7 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 				
 			\end{tabular}
 			\caption{
-				Histogram plots showing the quality statistics of the images incorporated into template images for various generation timescales.
+				Histogram plots showing the quality statistics of the images incorporated into template images \red{(as a fraction of unique footprint area in a given filter)} for various generation timescales.
 				Results are shown here for the $r$ filter.
 				The \textbf{left} panel shows the number of images used in a template, where a minimum of 4 was required in these simulations. % NB left panel uses a curve of the histogram to highlight differences
 				The \textbf{middle} and \textbf{right} panel shows the distribution of mean seeing and mean limiting magnitude (depth) of images used for templates respectively.
@@ -678,7 +678,21 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 			}
 			\label{fig:template_skymaps_delta-7_28days}
 		\end{figure}
-		
+
+  		\begin{figure}
+			\centering
+			\begin{tabular}{c c}
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_u_28_noDD_noTwi.pdf} &
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_g_28_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_r_28_noDD_noTwi.pdf} &
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_i_28_noDD_noTwi.pdf} \\
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_z_28_noDD_noTwi.pdf} &
+				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_y_28_noDD_noTwi.pdf} \\
+			\end{tabular}
+			\caption{
+			}
+			\label{fig:template_skymaps_delta-7_28days}
+		\end{figure}
 		
 		% \textbf{Jamie: Show some results for the MAF healpixel analysis and give some numbers:}
 		% - Area of the the sky with templates/fraction of survey footprint with templates as a function of time (figures \ref{fig:cumFrac_baseline}, \ref{fig:cumFrac_deltaNight}). % combine my plot with Lynne's, will only have a datapoint on each template generation night. Use her method as a baseline assuming template generation every night
@@ -713,7 +727,7 @@ Altogether these results show that the loss of visits due to template generation
 			\includegraphics[width=0.5\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_all_noDD_noTwi.pdf}
 			
 			\caption{
-				Histograms showing the sky area ($y$ axis) for which healpixels have $0, 1, 2...$ visits ($x$ axis) at the end of Year 1 considering all filters.
+				Histograms showing the \red{fractional} sky area ($y$ axis) for which healpixels have $0, 1, 2...$ visits ($x$ axis) at the end of Year 1 considering all filters.
 				We show the histogram distribution for the baseline where template generation is assumed (blue).
 				The distributions when template generation is required ($\Delta t = 3, 7, 14, 28\ \si{d}$) are denoted by the colored lines.
 			\label{fig:template_baseline_all}}
@@ -731,7 +745,7 @@ Altogether these results show that the loss of visits due to template generation
 				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
-				Per filter histograms of sky area with templates as a function of number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
+				Per filter histograms of \red{fractional} sky area with templates as a function of number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
     We compare these two timescales as there is little difference between the distributions for $\Delta t = 3, 7\ \si{d}$ and $\Delta t = 14, 28\ \si{d}$ respectively.
    See also the related Figure Set \ref{appendixb:1} (four images).
 			}
