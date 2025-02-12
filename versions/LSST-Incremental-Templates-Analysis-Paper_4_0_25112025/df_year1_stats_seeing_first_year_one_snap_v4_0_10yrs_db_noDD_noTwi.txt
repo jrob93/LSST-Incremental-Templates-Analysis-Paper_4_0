@@ -1,0 +1,13 @@
+\begin{tabular}{lrrrr}
+\toprule
+filter & \texttt{med}(seeing) & \texttt{std}(seeing) & \texttt{min}(seeing) & \texttt{max}(seeing) \\
+& (\arcsec) & (\arcsec) & (\arcsec) & (\arcsec) \\ 
+\midrule
+$u$ & 1.101 & 0.344 & 0.482 & 4.380 \\
+$g$ & 1.058 & 0.350 & 0.502 & 4.396 \\
+$r$ & 0.947 & 0.318 & 0.505 & 4.246 \\
+$i$ & 0.902 & 0.280 & 0.487 & 3.459 \\
+$z$ & 0.908 & 0.291 & 0.508 & 4.493 \\
+$y$ & 0.940 & 0.246 & 0.539 & 3.757 \\
+\bottomrule
+\end{tabular}
