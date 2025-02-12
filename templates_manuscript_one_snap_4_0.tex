@@ -22,8 +22,7 @@
 \usepackage{textcomp}
 % highlight text for comments
 \usepackage{color,soul}
-% allow for better figure alignment in tabular
-\usepackage[export]{adjustbox} % http://ctan.org/pkg/adjustbox - conflicts with aastex \splitbox command
+\usepackage{graphbox} %loads graphicx package to align figures in tabular
 
 % aliases
 \newcommand{\baseline}{\texttt{one\_snap\_v4.0}\xspace}
@@ -253,11 +252,13 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
  Figure \ref{animation:baseline} displays a snapshot from an animation showing the nominal sky coverage of $r$-band observations expected over the first year of the survey.
 
 		\begin{figure}
-			% \begin{center}
-			% 	\includegraphics[width=0.6\columnwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf}
-		\centering
-  \includegraphics[width=0.4\textwidth,valign=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf}
-  \includegraphics[width=0.4\textwidth,valign=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi_bounds.pdf}
+  	\centering
+\begin{tabular}{c c}
+	$N$ visits, filter = all &
+	Survey regions\\
+	\includegraphics[align=t,width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf} &
+	\includegraphics[align=t,width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi_bounds.pdf} \\
+\end{tabular}
 				\caption{\red{\textbf{Left:}} A sky map showing the total number of visits, in all filters, at the end of Year 1 for the \baselinefull observing strategy (Mollweide projection). 
     This sky map was generated using a \healpix \citep[Hierarchical Equal Area isoLatitude Pixelization; ][]{2005ApJ...622..759G}  resolution of \nside = 256.
     The plots are centered on right ascension $\alpha = 0$ and declination $\delta = 0$ degrees. RA and Dec lines are marked every 30$^\circ$.
@@ -267,7 +268,7 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
     \label{fig:baseline_labels}
 			% \end{center}
 		\end{figure}
-  
+
 	% baseline sky maps
 	\begin{figure}
 		\centering
@@ -653,24 +654,24 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 			\centering
 			\begin{tabular}{c c c}
 				& $\Delta N$ visits, $\Delta t$ = 7 d & $\Delta N$ visits, $\Delta t$ = 28 d \\
-				filter = $u$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi} &				
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi} \\
+				filter = $u$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi} &				
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi} \\
 				
-				filter = $g$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi} &				
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi} \\
+				filter = $g$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi} &				
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi} \\
 				
-				filter = $r$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\
+				filter = $r$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\
 				
-				filter = $i$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
+				filter = $i$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
 				
 				
-				filter = $z$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
+				filter = $z$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
 				
-				filter = $y$ & \includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
-				\includegraphics[width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
+				filter = $y$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
+				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
 				
 			\end{tabular}
 			\caption{Sky maps (\nside = 256), per filter, showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
