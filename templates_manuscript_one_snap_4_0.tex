@@ -679,20 +679,20 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 			\label{fig:template_skymaps_delta-7_28days}
 		\end{figure}
 
-  		\begin{figure}
-			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_u_28_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_g_28_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_r_28_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_i_28_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_z_28_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_y_28_noDD_noTwi.pdf} \\
-			\end{tabular}
-			\caption{
-			}
-			\label{fig:template_skymaps_delta-7_28days}
-		\end{figure}
+  % 		\begin{figure}
+		% 	\centering
+		% 	\begin{tabular}{c c}
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_u_28_noDD_noTwi.pdf} &
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_g_28_noDD_noTwi.pdf} \\
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_r_28_noDD_noTwi.pdf} &
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_i_28_noDD_noTwi.pdf} \\
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_z_28_noDD_noTwi.pdf} &
+		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_y_28_noDD_noTwi.pdf} \\
+		% 	\end{tabular}
+		% 	\caption{
+		% 	}
+		% 	\label{fig:template_skymaps_delta-7_28days}
+		% \end{figure}
 		
 		% \textbf{Jamie: Show some results for the MAF healpixel analysis and give some numbers:}
 		% - Area of the the sky with templates/fraction of survey footprint with templates as a function of time (figures \ref{fig:cumFrac_baseline}, \ref{fig:cumFrac_deltaNight}). % combine my plot with Lynne's, will only have a datapoint on each template generation night. Use her method as a baseline assuming template generation every night
@@ -1215,10 +1215,15 @@ The \gls*{lsst} observing cadence has been carefully optimized to maximise resul
 This could result in extremely rare scientific discoveries, such as a briefly observable \gls*{iso}, being missed in Year 1.
 		Further \rubinsim simulations are needed to examine if, and how, the Rubin scheduler can be tuned to maximize template production over the Year 1 without significantly impacting the 10-year outputs of the survey. 
 		% Strategies to boost the $g$ and $u$ template production rates in Year 1 should also be considered.
-  It is important for the community and the \gls*{scoc} to explore possible modifications to the Year 1 observing cadence  that may significantly boost template production, such as earmarking a small amount of Year 1 observing time for template building. 
-  \red{LIST SOME OTHER OPTIONS HERE. In Year 1, shift time from less-affected regions (e.g.\ \gls*{wfd}) to strongly affected regions \gls*{nes}. Likewise, shift time from well observed filters into $u$, $g$. Sacrificing some survey strategies during Year 1, e.g.\  the twilight survey and any scheduled triplet observations. Also assess to what template coverage it is possible to build up with commissioning data.}
-Other alternatives to boost the number of observations in the \gls*{nes} in Year 1 should be explored. 
-Closely following from this work, Schwamb et al. (in prep.) investigates possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.
+  It is important for the community and the \gls*{scoc} to explore possible modifications to the Year 1 observing cadence  that may significantly boost template production\sout{, such as earmarking a small amount of Year 1 observing time for template building}. 
+\sout{Other alternatives to boost} \red{For \gls*{sso} science in particular, possible methods of boosting} the number of observations in the \gls*{nes} \red{(and their impact on the survey science goals)} in Year 1 should be explored. 
+  \red{
+  % First, now that commissioning observations have begun one can assess the template coverage it is possible to achieve prior to the survey start date.
+  This might be achieved by reallocating an amount of Year 1 observing time to focus on template building. 
+  For example, regions lacking template coverage (namely the \gls*{nes}) could be prioritised by the scheduler when observable, by taking time from regions with more than sufficient coverage (e.g.\ the \gls*{wfd}). 
+  Likewise, an amount of time could be shifted from well observed filters into other filters, such as $u$ and $g$. 
+  Furthermore, sacrificing some survey strategies during Year 1 could free up more time to build templates, e.g.\  the twilight survey\footnote{\red{A primary goal of the low solar elongation twilight survey is to discover \glspl*{sso} interior to Earth's orbit; as such its effectiveness in Year 1 will be limited if no templates are available.}} and triplet observations. }
+Closely following from this work, Schwamb et al.\ (in prep.) investigates \red{in more detail} possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.
 
 It is vital that studies exploring the possible parameter space for incremental template generation within the \gls*{lsst} observing strategy and its impact on the \gls*{lsst} 10-year and Year 1 \maf metrics be completed before the start of Rubin on-sky commissioning with \gls*{lsstcam} (currently expected to start in the first half of 2025). 
 This will provide an opportunity to optimize the Year 1 observing strategy for alert production while giving the community time to initiate follow-up preparations for the start of \gls*{lsst} with the best picture of what Year 1 nightly outputs of the survey will look like.
