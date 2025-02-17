@@ -23,6 +23,8 @@
 % highlight text for comments
 \usepackage{color,soul}
 \usepackage{graphbox} %loads graphicx package to align figures in tabular
+%\usepackage{layouts} % use to get the textwidth in inches: \printinunitsof{in}\prntlen{\textwidth}
+\usepackage{showframe} % get sizes correct
 
 % aliases
 \newcommand{\baseline}{\texttt{one\_snap\_v4.0}\xspace}
@@ -173,6 +175,10 @@ The lack of templates in the \gls*{nes} dominates the loss of real-time \gls*{ss
 % reset the glossary from the introduction to redfine acronyms
 \glsresetall
 
+%% needs \usepackage{layouts}
+%textwidth in inches: \printinunitsof{in}\prntlen{\textwidth}\\
+%columnwidth in inches: \printinunitsof{in}\prntlen{\columnwidth}
+
 	The planned observing strategy for the Vera C. Rubin Observatory's \gls*{lsst} has been revised and optimized over the past seven years \citep{SCOC_Report_1,2022ApJS..258....1B, SCOC_Report_2,SCOC_Report_3}. 
  With an expected start date in late 2025, the survey will span ten years, covering $\sim$18,000 square degrees in six broad-band filters ($u$, $g$, $r$, $i$, $z$, and $y$) using the Rubin Observatory \gls*{lsstcam}, with a 9.6 deg$^2$ \gls*{fov} and the 8.36 m Simonyi Survey Telescope. The details of the survey's main science drivers and science requirements are summarized in \cite{lsstScienceBook2009}, \cite{lsstSRD}, \cite{2019ApJ...873..111I}, \cite{2022ApJS..258....1B}, and references within. 
  The planned \gls*{lsst} observing strategy has primarily been assessed via simulations of the observing strategy, in order to determine the expected outcomes over ten years of observations.
@@ -253,11 +259,11 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
 
 		\begin{figure}
   	\centering
-\begin{tabular}{c c}
+\begin{tabular}{@{}c@{}c@{}}
 	$N$ visits, filter = all &
 	Survey regions\\
-	\includegraphics[align=t,width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf} &
-	\includegraphics[align=t,width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi_bounds.pdf} \\
+	\includegraphics[align=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi.pdf} &
+	\includegraphics[align=t]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_nside-256_CountMetric_all_noDD_noTwi_bounds.pdf} \\
 \end{tabular}
 				\caption{\red{\textbf{Left:}} A sky map showing the total number of visits, in all filters, at the end of Year 1 for the \baselinefull observing strategy (Mollweide projection). 
     This sky map was generated using a \healpix \citep[Hierarchical Equal Area isoLatitude Pixelization; ][]{2005ApJ...622..759G}  resolution of \nside = 256.
@@ -272,13 +278,13 @@ This strategy will not work for Year 1 of \gls*{lsst} when the images required t
 	% baseline sky maps
 	\begin{figure}
 		\centering
-		\begin{tabular}{c c}
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_u_noDD_noTwi.pdf} &
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} \\
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} &
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_i_noDD_noTwi.pdf} \\
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_z_noDD_noTwi.pdf} &
-			\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_y_noDD_noTwi.pdf} \\
+		\begin{tabular}{@{}c@{}c@{}}
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_u_noDD_noTwi.pdf} &
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} \\
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} &
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_i_noDD_noTwi.pdf} \\
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_z_noDD_noTwi.pdf} &
+			\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_y_noDD_noTwi.pdf} \\
 		\end{tabular}
 		\caption{ Sky maps of the total number of visits per filter accumulated during Year 1 of the \baseline cadence simulation. 
   Visits associated with \glspl*{ddf} and the low-solar elongation twilight survey have been removed.  
@@ -577,13 +583,13 @@ Therefore we calculate this metric only for the Inner Solar System populations: 
 		
   		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{Sky maps showing the total number of visits with templates, per healpixel (\nside = 256), at the end of Year 1, assuming a template generation timescale of 7 days. Each panel shows the results for the $ugrizy$ filters.
 				Compare to Figure \ref{fig:baseline_skymaps} for the baseline number of visits per pixel at the end of Year 1.
@@ -593,13 +599,13 @@ Therefore we calculate this metric only for the Inner Solar System populations: 
 
   		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps/skymap_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{Same as Figure \ref{fig:template_skymaps_tscale-7} for a template generation timescale of 28 days.
 				Compare to Figure \ref{fig:baseline_skymaps} for the baseline number of visits per pixel at the end of Year 1.
@@ -629,13 +635,20 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}} &
+%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf}} &
+%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf}} \\
+%				
+%			\end{tabular}
+
+			\begin{tabular}{@{}c@{}c@{}}
+	\multicolumn{2}{c}{	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}}} \\
+	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf}} &
+	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf}} \\
+	
+\end{tabular}
 			\caption{
 				Histogram plots showing the quality statistics of the images incorporated into template images \red{(as a fraction of unique footprint area in a given filter)} for various generation timescales.
 				Results are shown here for the $r$ filter.
@@ -644,6 +657,7 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 				The solid vertical line indicates the median value of all images in the baseline survey (tables \ref{tab:year1_image_seeing} \& \ref{tab:year1_image_depth}).
 				% \textbf{Add a table with the summary template generation stats? In appendix?} % see file df_template_stats_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi.csv
 				In these simulations templates are considered on a healpixel basis and, as such, the $y$-axis indicates the total sky area of template healpixels with a given image quality statistic value. The complete figure set (six images) is available in the online edition.
+				\red{UPDATE CAPTION TO NEW LAYOUT}
     % Quality is probably dependent on the survey start time - the quality of the first N images will be influences by seasonal/lunation variations?
 			}
 			\label{fig:template_image_histograms_tscale}
@@ -652,26 +666,27 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				\small
 				& $\Delta N$ visits, $\Delta t$ = 7 d & $\Delta N$ visits, $\Delta t$ = 28 d \\
-				filter = $u$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi} &				
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi} \\
+				filter = $u$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi} \\
 				
-				filter = $g$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi} &				
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi} \\
+				filter = $g$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi} \\
 				
-				filter = $r$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\
+				filter = $r$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\
 				
-				filter = $i$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
+				filter = $i$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
 				
 				
-				filter = $z$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
+				filter = $z$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
 				
-				filter = $y$ & \includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
-				\includegraphics[align=c,width=0.3\textwidth]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
+				filter = $y$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
 				
 			\end{tabular}
 			\caption{Sky maps (\nside = 256), per filter, showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
@@ -682,13 +697,13 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 
   % 		\begin{figure}
 		% 	\centering
-		% 	\begin{tabular}{c c}
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_u_28_noDD_noTwi.pdf} &
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_g_28_noDD_noTwi.pdf} \\
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_r_28_noDD_noTwi.pdf} &
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_i_28_noDD_noTwi.pdf} \\
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_z_28_noDD_noTwi.pdf} &
-		% 		\includegraphics[width=0.4\textwidth]{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_y_28_noDD_noTwi.pdf} \\
+		% 	\begin{tabular}{@{}c@{}c@{}}
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_u_28_noDD_noTwi.pdf} &
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_g_28_noDD_noTwi.pdf} \\
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_r_28_noDD_noTwi.pdf} &
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_i_28_noDD_noTwi.pdf} \\
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_z_28_noDD_noTwi.pdf} &
+		% 		\includegraphics{results/skymaps/skymaps_delta_tscale_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceCount_28d-7d_y_28_noDD_noTwi.pdf} \\
 		% 	\end{tabular}
 		% 	\caption{
 		% 	}
@@ -725,7 +740,7 @@ Altogether these results show that the loss of visits due to template generation
 		\begin{figure}
 			\centering
 			
-			\includegraphics[width=0.5\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_all_noDD_noTwi.pdf}
+			\frame{\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_all_noDD_noTwi.pdf}}
 			
 			\caption{
 				Histograms showing the \red{fractional} sky area ($y$ axis) for which healpixels have $0, 1, 2...$ visits ($x$ axis) at the end of Year 1 considering all filters.
@@ -736,14 +751,14 @@ Altogether these results show that the loss of visits due to template generation
 		
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
 			
-    				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
+    				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				Per filter histograms of \red{fractional} sky area with templates as a function of number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
@@ -763,16 +778,16 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
 
 \begin{figure}
    		\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
           filter = $g$ &  filter = $r$\\
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
    \end{tabular}
 
@@ -789,17 +804,17 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
 
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf}} &
+				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf}} &
+				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf}} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				The panels show a zoomed-in cutout view (gnomic projection) of the sky map at the indicated locations in Figure \ref{fig:all_together_r_7d} for the $g$ filter and template generation timescale $\Delta t = 7 \si{d}$.
@@ -817,17 +832,17 @@ The \textbf{bottom} panels display the difference between the previous two rows.
   
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_g_7} for the $r$ filter.  
@@ -865,15 +880,22 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 
     \begin{figure}
 			\centering
-			\begin{tabular}{c c c}
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf}} &
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf}} &
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf}} \\
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf}
+%			\end{tabular}
+						\begin{tabular}{@{}c@{}c@{}}
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf}} &
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf}} \\
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf}} &
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf}} \\
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf}} &
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf}} \\
 			\end{tabular}
-			
 			\caption{The cumulative healpixel area with templates for a given filter in Year 1 of \gls*{lsst}.
 				Each panel shows the results for the $ugrizy$ filters, respectively.
 				The area covered by the nominal \baseline survey (assuming all templates exist at all times) is shown by the black line.
@@ -893,11 +915,11 @@ The \textbf{bottom} panels display the difference between the previous two rows.
   		% cumulative fraction of baseline area - equivalent to n_visits(t)/n_visits_total 
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_3.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_7.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_14.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_28.pdf}
+			\begin{tabular}{@{}c@{}c@{}}
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_3.pdf}} &
+				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_7.pdf}} \\
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_14.pdf} &
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_28.pdf}
 			\end{tabular}
 			\caption{ An alternative to Figure \ref{fig:cum_baseline_filter}, where now we plot the cumulative area covered in a particular filter as a fraction of the total baseline area in that filter at the end of Year 1.
 				In each panel we show the results for $\Delta t$ = 3, 7, 14, 28 days) and the color of each curve indicates the filter ($ugrizy$).
@@ -918,13 +940,13 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 
   % \begin{figure}
 		% 	\centering
-		% 	\begin{tabular}{c c}
-		% 		\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi.pdf} &
-		% 		 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi.pdf} \\
-		% 		 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi.pdf} &
-		% 		\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi.pdf} \\
-		% 		 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi.pdf} &
-		% 		\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi.pdf} \\
+		% 	\begin{tabular}{@{}c@{}c@{}}
+		% 		\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi.pdf} &
+		% 		 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi.pdf} \\
+		% 		 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi.pdf} &
+		% 		\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi.pdf} \\
+		% 		 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi.pdf} &
+		% 		\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi.pdf} \\
     			
 		% 	\end{tabular}
 		% 	\caption{
@@ -956,14 +978,22 @@ Figure \ref{fig:cumFrac_deltaNight} shows that as $\Delta t$ is decreased, the t
 		% cumulative fraction of footprint area vs deltaNight - equivalent to the rate at which full coverage is reached
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c c}
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_z.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf}} &
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf}} &
+%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf}} \\
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_z.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}
+%			\end{tabular}
+			\begin{tabular}{@{}c@{}c@{}}
+	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf}} &
+	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf}} \\
+	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf}} &
+	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf}} \\
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_z.pdf} &
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}\\
+\end{tabular}
 			\caption{Plots showing the cumulative fraction of the Year 1 survey footprint area (i.e.\ the unique on-sky area covered by that filter in the Year 1 survey) against \deltaNight, which is the number of days between the first visit to a healpixel and the night at which a template was generated.
 				% Note: This is the unique sky area covered in each filter
 				Each panel shows the results for a different filter ($ugrizy$).
@@ -990,7 +1020,7 @@ For $\Delta t = 28$ d, $38.8\%$ of Year 1 visits have template coverage $\geq90\
 				% redacted database fractional template coverage figure
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.5\textwidth]{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi.pdf}
+			\includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi.pdf}
 			\caption{Histogram of the fractional template coverage for all Year 1 visits, which is determined from the number of healpixels within the visit footprint with templates.
 				Results are shown for the \baseline cadence simulation, assuming a range of template generation timescales.
 				The peak at zero consists mainly of the images used to make the templates (see Table \ref{tab:year1_N_visits_templates}).
@@ -1000,9 +1030,9 @@ For $\Delta t = 28$ d, $38.8\%$ of Year 1 visits have template coverage $\geq90\
 
   \begin{figure}
       \centering
-      			\begin{tabular}{c c}
-      \includegraphics[width=0.5\linewidth]{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_7_2d_hist.pdf} &
-            \includegraphics[width=0.5\linewidth]{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_28_2d_hist.pdf} \\
+      			\begin{tabular}{@{}c@{}c@{}}
+      \frame{\includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_7_2d_hist.pdf}} &
+            \frame{\includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_28_2d_hist.pdf}} \\
 \end{tabular}
 \caption{2-Dimensional histogram distributions showing how the fractional template coverage of all visits changes as a function of survey time.
 The logarithmic color scale indicates the number of visits with a particular template coverage on a given date. Results are shown for $\Delta t = 7$d \textbf{(left)} and $\Delta t = 28$d \textbf{(right)}.
@@ -1079,7 +1109,7 @@ Future investigations should account for any changes to the survey schedule as t
 		If we consider the analysis in \cite{schwambTuningLegacySurvey2023}, they compared different survey strategies and stated that a $\pm5\%$ variation in a given metric (relative to the baseline survey at the time) would be acceptable for solar system science cases.
 		However these results show drops of $28-63\%$ in discovery relative to the baseline across all test populations (Figure \ref{fig:temp_gen_discovery_metrics}), alongside delays of $\gtrsim 60$ days before \gls*{sso} discoveries can be made (Figure \ref{fig:completeness_over_time}).
 		Altogether, these results highlight that the number and rate of ``real-time'' solar system discoveries in Year 1 will be significantly impacted by an incremental template generation strategy that builds templates from the regular LSST observations as the survey processes. The NES is expected to be the hardest hit region within the LSST footprint. 
-		This will affect the discovery of \glspl*{sso} that require rapid followup, such as \glspl*{iso}, \glspl*{pha}, and mini-moons.
+		This will affect the discovery of \glspl*{sso} that require rapid followup, such as \glspl*{iso}, \glspl*{pha}, and mini-moons. 
 		
 
 		\begin{table}
@@ -1098,9 +1128,9 @@ Future investigations should account for any changes to the survey schedule as t
 		% relative detection loss
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_discovery_metric_bright.pdf} &
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_discovery_metric_faint.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_bright.pdf}} &
+				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_faint.pdf}} \\
     			
 			\end{tabular}
 			\caption{Here we show the results of running the \maf \gls*{sso} discovery metrics on a redacted Year 1 visit database of visits with template coverage $\geq 90\%$.
@@ -1115,11 +1145,11 @@ Future investigations should account for any changes to the survey schedule as t
   		% relative detection loss - declination test
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c}
-    				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_bright.pdf} &
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_faint.pdf} \\
-    				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_bright.pdf} &
-				\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_faint.pdf}
+			\begin{tabular}{@{}c@{}c@{}}
+    				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_bright.pdf}} &
+				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_faint.pdf}} \\
+    				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_bright.pdf}} &
+				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_faint.pdf}}
 			\end{tabular}
 			\caption{These panels show the same discovery metrics as Figure \protect\ref{fig:temp_gen_discovery_metrics}, but now results are for subsets of visits with Dec$\geq0$ and Dec$<0$ degrees (upper and lower panels respectively). 
 			}
@@ -1129,7 +1159,7 @@ Future investigations should account for any changes to the survey schedule as t
 		% % colour metrics
 		% \begin{figure}
 		% 	\centering
-		% 	\begin{tabular}{c c}
+		% 	\begin{tabular}{@{}c@{}c@{}}
 		% 		\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_bright.pdf} &
 		% 		\includegraphics[width=0.5\textwidth]{results/one_snap_v4_0_n_visits_4_colour_metric_faint.pdf}
 		% 	\end{tabular}
@@ -1141,13 +1171,13 @@ Future investigations should account for any changes to the survey schedule as t
 		% completeness over time
 		\begin{figure}
 			\centering
-			\begin{tabular}{c c c}
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_MBA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_NEO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_PHA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_TNO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_OCC_r5_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/DiscoveryTime_OCC_r20_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}c@{}}
+				\frame{\includegraphics{results/DiscoveryTime_MBA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} &
+				\frame{\includegraphics{results/DiscoveryTime_NEO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} &
+				\frame{\includegraphics{results/DiscoveryTime_PHA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} \\
+				\includegraphics{results/DiscoveryTime_TNO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
+				\includegraphics{results/DiscoveryTime_OCC_r5_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
+				\includegraphics{results/DiscoveryTime_OCC_r20_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{Plots showing the discovery completeness of each population during Year 1 of the survey, i.e.\ the cumulative fraction of objects that have been discovered as a function of time.
 				The line colors distinguish the \baseline survey where template generation has been implicitly assumed and the simulations in which template generation has been considered (for $\Delta t$ = 3, 7, 14, 28 days).
@@ -1288,13 +1318,19 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 		
 		\begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_u_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_u_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_u_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_u_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_u_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_u_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+					\begin{tabular}{@{}c@{}c@{}}
+			\multicolumn{2}{c}{	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_u_noDD_noTwi.pdf}} \\
+	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_u_noDD_noTwi.pdf} &
+	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_u_noDD_noTwi.pdf} \\
+	
+\end{tabular}
 			\caption{
 				Histogram plots showing the quality statistics of the images incorporated into template images for various generation timescales.
 				Results are shown here for the $u$ filter. 
@@ -1309,13 +1345,20 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   \begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_g_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_g_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_g_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_g_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_g_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_g_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+		
+							\begin{tabular}{@{}c@{}c@{}}
+			\multicolumn{2}{c}{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_g_noDD_noTwi.pdf}} \\
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_g_noDD_noTwi.pdf} &
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_g_noDD_noTwi.pdf} \\
+					
+				\end{tabular}
 			\caption{
 				Same as Figure \ref{appendixa:1} for the $g$ filter.  \label{appendixa:2}
 			}
@@ -1324,13 +1367,21 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
   
   \begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+		
+	\begin{tabular}{@{}c@{}c@{}}
+		\multicolumn{2}{c}{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}} \\
+				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
 				
 			\end{tabular}
+			
 			\caption{
 				Same as Figure \ref{appendixa:1} for the $r$ filter.  \label{appendixa:3}
 			}
@@ -1338,13 +1389,19 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
     \begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_i_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_i_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_i_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_i_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_i_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_i_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+			\begin{tabular}{@{}c@{}c@{}}
+			\multicolumn{2}{c}{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_i_noDD_noTwi.pdf}} \\
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_i_noDD_noTwi.pdf} &
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_i_noDD_noTwi.pdf} \\
+					
+				\end{tabular}
 			\caption{
 				Same as Figure \ref{appendixa:1} for the $i$ filter.  \label{appendixa:4}
 			}
@@ -1352,13 +1409,20 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
    \begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_z_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_z_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_z_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_z_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_z_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_z_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+		
+					\begin{tabular}{@{}c@{}c@{}}
+			\multicolumn{2}{c}{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_z_noDD_noTwi.pdf}} \\
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_z_noDD_noTwi.pdf} &
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_z_noDD_noTwi.pdf} \\
+					
+				\end{tabular}
 			\caption{
 				Same as Figure \ref{appendixa:1} for the $z$ filter.  \label{appendixa:5}
 			}
@@ -1366,13 +1430,19 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
      \begin{figure}[h]
 			\centering
-			\begin{tabular}{c c c}
-				
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_y_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_y_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_y_noDD_noTwi.pdf} \\
-				
-			\end{tabular}
+%			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_y_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_y_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_y_noDD_noTwi.pdf} \\
+%				
+%			\end{tabular}
+							\begin{tabular}{@{}c@{}c@{}}
+			\multicolumn{2}{c}{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_y_noDD_noTwi.pdf}} \\
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_y_noDD_noTwi.pdf} &
+					\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_y_noDD_noTwi.pdf} \\
+					
+				\end{tabular}
 			\caption{
 				Same as Figure \ref{appendixa:1} for the $y$ filter.  
            \label{appendixa:6}
@@ -1391,13 +1461,13 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   \begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_3_noDD_noTwi.pdf} &
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_3_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_3_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_3_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_3_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_3_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_3_noDD_noTwi.pdf} &
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_3_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_3_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_3_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_3_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_3_noDD_noTwi.pdf} \\
     			
 			\end{tabular}
 			\caption{
@@ -1407,13 +1477,13 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
     \begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi.pdf} &
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi.pdf} &
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi.pdf} \\
     			
 			\end{tabular}
 			\caption{ Same as Figure \ref{appendixb:1} for $\Delta t = 7\ \si{d}$. \label{appendixb:2}}
@@ -1421,13 +1491,13 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
       \begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_14_noDD_noTwi.pdf} &
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_14_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_14_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_14_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_14_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_14_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_14_noDD_noTwi.pdf} &
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_14_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_14_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_14_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_14_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_14_noDD_noTwi.pdf} \\
     			
 			\end{tabular}
 			\caption{ Same as Figure \ref{appendixb:1} for $\Delta t = 14\ \si{d}$. \label{appendixb:3}}
@@ -1435,13 +1505,13 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
         \begin{figure}
 			\centering
-			\begin{tabular}{c c}
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi.pdf} &
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi.pdf} \\
-				 \includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi.pdf} &
-				\includegraphics[width=0.4\textwidth]{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi.pdf} \\
+			\begin{tabular}{@{}c@{}c@{}}
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi.pdf} &
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi.pdf} \\
+				 \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi.pdf} &
+				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi.pdf} \\
     			
 			\end{tabular}
 			\caption{ Same as Figure \ref{appendixb:1} for $\Delta t = 28\ \si{d}$. \label{appendixb:4}}
@@ -1458,16 +1528,16 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
 \begin{figure}
    		\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
           filter = $g$ &  filter = $r$\\
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
    \end{tabular}
 
@@ -1482,17 +1552,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
    Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 3 d. 
@@ -1504,17 +1574,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
   
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-3_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 3 d.  
@@ -1525,16 +1595,16 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
         
 \begin{figure}
    		\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
           filter = $g$ &  filter = $r$\\
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
    \end{tabular}
 
@@ -1549,17 +1619,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
    Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 7 d. 
@@ -1571,17 +1641,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
   
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 7 d.  
@@ -1592,16 +1662,16 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
         
 \begin{figure}
    		\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
           filter = $g$ &  filter = $r$\\
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
    \end{tabular}
 
@@ -1616,17 +1686,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
    Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 14 d. 
@@ -1638,17 +1708,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
   
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-14_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 14 d.  
@@ -1659,16 +1729,16 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
 \begin{figure}
    		\centering
-			\begin{tabular}{c c}
+			\begin{tabular}{@{}c@{}c@{}}
           filter = $g$ &  filter = $r$\\
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
-   		\includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_noDD_noTwi.pdf} &
+   		\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
-         \includegraphics[width=0.5\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} &
+         \includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} \\
 
    \end{tabular}
 
@@ -1683,17 +1753,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
    Same as Figure \ref{fig:skymap_cutouts_g_7} for $\Delta t$ = 28 d. 
@@ -1705,17 +1775,17 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
   
   	\begin{figure}
 			\centering
-			\begin{tabular}{  c c c}
+			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $r$ & WFD, filter = $r$ & GP, filter = $r$ \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
-				\includegraphics[width=0.3\textwidth]{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-28_nside-256_doAllTemplateMetrics_reduceCount_r_GP_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
 				 Same as Figure \ref{fig:skymap_cutouts_r_7} for $\Delta t$ = 28 d.  
