@@ -24,7 +24,7 @@
 \usepackage{color,soul}
 \usepackage{graphbox} %loads graphicx package to align figures in tabular
 %\usepackage{layouts} % use to get the textwidth in inches: \printinunitsof{in}\prntlen{\textwidth}
-\usepackage{showframe} % get sizes correct
+% \usepackage{showframe} % get sizes correct
 
 % aliases
 \newcommand{\baseline}{\texttt{one\_snap\_v4.0}\xspace}
@@ -637,16 +637,16 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 			\centering
 %			\begin{tabular}{@{}c@{}c@{}c@{}}
 %				
-%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}} &
-%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf}} &
-%				\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf}} \\
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
+%				\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
 %				
 %			\end{tabular}
 
 			\begin{tabular}{@{}c@{}c@{}}
-	\multicolumn{2}{c}{	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}}} \\
-	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf}} &
-	\frame{\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf}} \\
+	\multicolumn{2}{c}{	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceNTemplate_r_noDD_noTwi.pdf}} \\
+	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceSeeingTemplate_r_noDD_noTwi.pdf} &
+	\includegraphics{results/histograms_templates_tscale/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doALLTemplateMetrics_reduceDepthTemplate_r_noDD_noTwi.pdf} \\
 	
 \end{tabular}
 			\caption{
@@ -678,19 +678,20 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 				filter = $r$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
 				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\
 				
-				filter = $i$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
-				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
+				% filter = $i$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
+				% \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
 				
 				
-				filter = $z$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
-				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
+				% filter = $z$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
+				% \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
 				
-				filter = $y$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
-				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
+				% filter = $y$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
+				% \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
 				
 			\end{tabular}
-			\caption{Sky maps (\nside = 256), per filter, showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
-   Compared to $\Delta t = 28$d, the $\Delta t = 7$d simulation has more uniform template coverage and fewer healpixels with a $>4$ image loss.  
+			\caption{Sky maps (\nside = 256)\sout{, per filter,} showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey\red{, for the $u$, $g$ and $r$ filters}. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
+   Compared to $\Delta t = 28$d, the $\Delta t = 7$d simulation has more uniform template coverage and fewer healpixels with a $>4$ image loss.
+   \red{The complete figure set containing all filters is available in the online edition.}
 			}
 			\label{fig:template_skymaps_delta-7_28days}
 		\end{figure}
@@ -740,7 +741,7 @@ Altogether these results show that the loss of visits due to template generation
 		\begin{figure}
 			\centering
 			
-			\frame{\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_all_noDD_noTwi.pdf}}
+			\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_all_noDD_noTwi.pdf}
 			
 			\caption{
 				Histograms showing the \red{fractional} sky area ($y$ axis) for which healpixels have $0, 1, 2...$ visits ($x$ axis) at the end of Year 1 considering all filters.
@@ -806,9 +807,9 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
 			\centering
 			\begin{tabular}{@{}c@{}c@{}c@{}}
                  NES, filter = $g$ & WFD, filter = $g$ & GP, filter = $g$ \\
-				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf}} &
-				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf}} &
-				\frame{\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf}} \\
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_NES_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_WFD_noDD_noTwi.pdf} &
+				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_nside-256_CountMetric_g_GP_noDD_noTwi.pdf} \\
 				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_NES_noDD_noTwi.pdf} &
 				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_WFD_noDD_noTwi.pdf} &
 				\includegraphics{results/skymaps_cutout/skymaps_cutout_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_tscale-7_nside-256_doAllTemplateMetrics_reduceCount_g_GP_noDD_noTwi.pdf} \\
@@ -881,20 +882,20 @@ The \textbf{bottom} panels display the difference between the previous two rows.
     \begin{figure}
 			\centering
 %			\begin{tabular}{@{}c@{}c@{}c@{}}
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf}} &
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf}} &
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf}} \\
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf} \\
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf} &
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf} &
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf}
 %			\end{tabular}
 						\begin{tabular}{@{}c@{}c@{}}
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf}} &
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf}} \\
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf}} &
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf}} \\
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf}} &
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf}} \\
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_u.pdf} &
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_g.pdf} \\
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_r.pdf} &
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_i.pdf} \\
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_z.pdf} &
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cum_baseline_y.pdf} \\
 			\end{tabular}
 			\caption{The cumulative healpixel area with templates for a given filter in Year 1 of \gls*{lsst}.
 				Each panel shows the results for the $ugrizy$ filters, respectively.
@@ -916,8 +917,8 @@ The \textbf{bottom} panels display the difference between the previous two rows.
 		\begin{figure}
 			\centering
 			\begin{tabular}{@{}c@{}c@{}}
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_3.pdf}} &
-				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_7.pdf}} \\
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_3.pdf} &
+				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_7.pdf} \\
 				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_14.pdf} &
 				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_cumFrac_baseline_28.pdf}
 			\end{tabular}
@@ -979,18 +980,18 @@ Figure \ref{fig:cumFrac_deltaNight} shows that as $\Delta t$ is decreased, the t
 		\begin{figure}
 			\centering
 %			\begin{tabular}{@{}c@{}c@{}c@{}}
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf}} &
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf}} &
-%				\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf}} \\
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf} &
+%				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf} \\
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf} &
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_z.pdf} &
 %				\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}
 %			\end{tabular}
 			\begin{tabular}{@{}c@{}c@{}}
-	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf}} &
-	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf}} \\
-	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf}} &
-	\frame{\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf}} \\
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_u.pdf} &
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_g.pdf} \\
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_r.pdf} &
+	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_i.pdf} \\
 	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_z.pdf} &
 	\includegraphics{results/first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_doAllTemplateMetrics_reduceDeltaNight_y.pdf}\\
 \end{tabular}
@@ -1031,8 +1032,8 @@ For $\Delta t = 28$ d, $38.8\%$ of Year 1 visits have template coverage $\geq90\
   \begin{figure}
       \centering
       			\begin{tabular}{@{}c@{}c@{}}
-      \frame{\includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_7_2d_hist.pdf}} &
-            \frame{\includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_28_2d_hist.pdf}} \\
+      \includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_7_2d_hist.pdf} &
+            \includegraphics{results/fractional_template_coverage_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_28_2d_hist.pdf} \\
 \end{tabular}
 \caption{2-Dimensional histogram distributions showing how the fractional template coverage of all visits changes as a function of survey time.
 The logarithmic color scale indicates the number of visits with a particular template coverage on a given date. Results are shown for $\Delta t = 7$d \textbf{(left)} and $\Delta t = 28$d \textbf{(right)}.
@@ -1129,8 +1130,8 @@ Future investigations should account for any changes to the survey schedule as t
 		\begin{figure}
 			\centering
 			\begin{tabular}{@{}c@{}c@{}}
-				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_bright.pdf}} &
-				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_faint.pdf}} \\
+				\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_bright.pdf} &
+				\includegraphics{results/one_snap_v4_0_n_visits_4_discovery_metric_faint.pdf} \\
     			
 			\end{tabular}
 			\caption{Here we show the results of running the \maf \gls*{sso} discovery metrics on a redacted Year 1 visit database of visits with template coverage $\geq 90\%$.
@@ -1146,10 +1147,10 @@ Future investigations should account for any changes to the survey schedule as t
 		\begin{figure}
 			\centering
 			\begin{tabular}{@{}c@{}c@{}}
-    				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_bright.pdf}} &
-				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_faint.pdf}} \\
-    				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_bright.pdf}} &
-				\frame{\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_faint.pdf}}
+    				\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_bright.pdf} &
+				\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_lt_0_discovery_metric_faint.pdf} \\
+    				\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_bright.pdf} &
+				\includegraphics{results/one_snap_v4_0_n_visits_4_Dec_gtreq_0_discovery_metric_faint.pdf}
 			\end{tabular}
 			\caption{These panels show the same discovery metrics as Figure \protect\ref{fig:temp_gen_discovery_metrics}, but now results are for subsets of visits with Dec$\geq0$ and Dec$<0$ degrees (upper and lower panels respectively). 
 			}
@@ -1172,9 +1173,9 @@ Future investigations should account for any changes to the survey schedule as t
 		\begin{figure}
 			\centering
 			\begin{tabular}{@{}c@{}c@{}c@{}}
-				\frame{\includegraphics{results/DiscoveryTime_MBA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} &
-				\frame{\includegraphics{results/DiscoveryTime_NEO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} &
-				\frame{\includegraphics{results/DiscoveryTime_PHA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf}} \\
+				\includegraphics{results/DiscoveryTime_MBA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
+				\includegraphics{results/DiscoveryTime_NEO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
+				\includegraphics{results/DiscoveryTime_PHA_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} \\
 				\includegraphics{results/DiscoveryTime_TNO_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
 				\includegraphics{results/DiscoveryTime_OCC_r5_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} &
 				\includegraphics{results/DiscoveryTime_OCC_r20_first_year_one_snap_v4_0_10yrs_db_n_visits_4_noDD_noTwi.pdf} \\
@@ -1454,7 +1455,54 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 
   		% \appendix
 		% \section{Figure Set \ref{fig:template_baseline_histograms7_28d} Figures}
-		\section{Figure Set 11 Figures}
+        
+		\section{Figure Set 9 Figures}
+		
+		For ease of the reviewer/reader, in this appendix we provide the a Figure Set that would make the complete Figure Set \ref{fig:template_skymaps_delta-7_28days}: Figures \ref{appendixd:1} and \ref{appendixd:2}.
+
+		\begin{figure}
+			\centering
+			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				\small
+				& $\Delta N$ visits, $\Delta t$ = 7 d & $\Delta N$ visits, $\Delta t$ = 28 d \\
+				filter = $u$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_28_noDD_noTwi} \\
+				
+				filter = $g$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_28_noDD_noTwi} \\
+				
+				filter = $r$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_7_noDD_noTwi} &			
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_28_noDD_noTwi} \\				
+			\end{tabular}
+			\caption{
+            \red{Sky maps (\nside = 256) showing the  difference between total number of visits with templates at the end of Year 1 and the nominal \baseline survey, for the $u$, $g$ and $r$ filters. \textbf{Left:} Template generation timescale $\Delta t = 7 \si{d}$.  \textbf{Right:} Template generation timescale $\Delta t = 28 \si{d}$. Across most of the sky templates are generated quickly, so the typical loss is only the 4 visits used to produce the templates. 
+   Compared to $\Delta t = 28$d, the $\Delta t = 7$d simulation has more uniform template coverage and fewer healpixels with a $>4$ image loss.}
+			}
+			\label{appendixd:1}
+		\end{figure}
+        
+		\begin{figure}
+			\centering
+			\begin{tabular}{@{}c@{}c@{}c@{}}
+%				\small
+				& $\Delta N$ visits, $\Delta t$ = 7 d & $\Delta N$ visits, $\Delta t$ = 28 d \\			
+				filter = $i$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_28_noDD_noTwi} \\
+				
+				
+				filter = $z$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_7_noDD_noTwi} &			
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_28_noDD_noTwi} \\
+				
+				filter = $y$ & \includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_7_noDD_noTwi} &				
+				\includegraphics[align=t]{results/skymaps/skymaps_delta_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_28_noDD_noTwi} \\
+				
+			\end{tabular}
+			\caption{\red{Same as Figure \ref{appendixd:1} for the $i$, $z$, $y$ filters.
+			}}
+			\label{appendixd:2}
+		\end{figure}
+        
+        \section{Figure Set 11 Figures}
 		
 		For ease of the reviewer/reader, in this appendix we provide the a Figure Set that complements Figure \ref{fig:template_baseline_histograms7_28d}: Figures \ref{appendixb:1}, \ref{appendixb:2}, \ref{appendixb:3}, and \ref{appendixb:4}. 
 
