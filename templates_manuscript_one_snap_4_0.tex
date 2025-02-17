@@ -650,14 +650,13 @@ We have assumed these template images will enable \gls*{rpp} and \gls*{ssp} to p
 	
 \end{tabular}
 			\caption{
-				Histogram plots showing the quality statistics of the images incorporated into template images \red{(as a fraction of unique footprint area in a given filter)} for various generation timescales.
+				Histogram plots showing the quality statistics of the images incorporated into template images \red{across the sky (as a fraction of unique footprint area in a given filter)} for various generation timescales.
 				Results are shown here for the $r$ filter.
-				The \textbf{left} panel shows the number of images used in a template, where a minimum of 4 was required in these simulations. % NB left panel uses a curve of the histogram to highlight differences
-				The \textbf{middle} and \textbf{right} panel shows the distribution of mean seeing and mean limiting magnitude (depth) of images used for templates respectively.
+				The \sout{\textbf{left}} \red{\textbf{upper}} panel shows the number of images used in a template, where a minimum of 4 was required in these simulations. % NB left panel uses a curve of the histogram to highlight differences
+				The \sout{\textbf{middle} and \textbf{right} panel shows} \red{\textbf{lower left} and \textbf{lower right} panels show}   the distribution of mean seeing and mean limiting magnitude (depth) of images used for templates respectively.
 				The solid vertical line indicates the median value of all images in the baseline survey (tables \ref{tab:year1_image_seeing} \& \ref{tab:year1_image_depth}).
 				% \textbf{Add a table with the summary template generation stats? In appendix?} % see file df_template_stats_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi.csv
 				In these simulations templates are considered on a healpixel basis and, as such, the $y$-axis indicates the total sky area of template healpixels with a given image quality statistic value. The complete figure set (six images) is available in the online edition.
-				\red{UPDATE CAPTION TO NEW LAYOUT}
     % Quality is probably dependent on the survey start time - the quality of the first N images will be influences by seasonal/lunation variations?
 			}
 			\label{fig:template_image_histograms_tscale}
@@ -756,15 +755,17 @@ Altogether these results show that the loss of visits due to template generation
 			
     				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_u_noDD_noTwi.pdf} &
 				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_g_noDD_noTwi.pdf} \\
-				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf} &
-				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
-				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
-				\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
+				\multicolumn{2}{c}{\includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_r_noDD_noTwi.pdf}} \\
+				% \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_i_noDD_noTwi.pdf} \\
+				% \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_z_noDD_noTwi.pdf} &
+				% \includegraphics{results/histograms/hist_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi_CountMetric_doAllTemplateMetrics_reduceCount_y_noDD_noTwi.pdf} \\
 			\end{tabular}
 			\caption{
-				Per filter histograms of \red{fractional} sky area with templates as a function of number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
+				\sout{Per filter histograms of sky area with templates as a function of}       
+             \red{Per filter histograms showing the fraction of sky area with a given} number of visits per healpixel (similar to Figure \ref{fig:template_baseline_all}) for $\Delta t = 7\ \si{d}$ (orange) and $\Delta t = 28\ \si{d}$ (green) compared to the sky area covered in the \baseline observing strategy (blue).
+                \red{Results are shown here for the $u$, $g$ and $r$ filters.}
     We compare these two timescales as there is little difference between the distributions for $\Delta t = 3, 7\ \si{d}$ and $\Delta t = 14, 28\ \si{d}$ respectively.
-   See also the related Figure Set \ref{appendixb:1} (four images).
+   See also the related Figure Set \ref{appendixb:1} (four images \red{showing all filters}).
 			}
 			\label{fig:template_baseline_histograms7_28d}
 		\end{figure}
@@ -1333,10 +1334,10 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
 	
 \end{tabular}
 			\caption{
-				Histogram plots showing the quality statistics of the images incorporated into template images for various generation timescales.
+				Histogram plots showing the quality statistics of the images incorporated into template images \red{across the sky (as a fraction of unique footprint area in a given filter)} for various generation timescales.
 				Results are shown here for the $u$ filter. 
-				The left panel shows the number of images used in a template, where a minimum of 4 was required in these simulations. % NB left panel uses a curve of the histogram to highlight differences
-				The middle and right panel shows the distribution of mean seeing and mean limiting magnitude (depth) of images used for templates.
+				The \sout{\textbf{left}} \red{\textbf{upper}} panel shows the number of images used in a template, where a minimum of 4 was required in these simulations. % NB left panel uses a curve of the histogram to highlight differences
+				The \sout{\textbf{middle} and \textbf{right} panel shows} \red{\textbf{lower left} and \textbf{lower right} panels show} the distribution of mean seeing and mean limiting magnitude (depth) of images used for templates respectively.
 				The solid vertical line indicates the median value of all images in the baseline survey (tables \ref{tab:year1_image_seeing} \& \ref{tab:year1_image_depth}).
 				% see file df_template_stats_first_year_one_snap_v4_0_10yrs_db_noDD_noTwi.csv
 				In these simulations templates are considered on a healpixel basis, as such the $y$-axis indicates the total sky area of templates with a given quality statistic value. \label{appendixa:1}
@@ -1519,7 +1520,8 @@ B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript.
     			
 			\end{tabular}
 			\caption{
-				Histograms of sky area as a function of number of visits per healpixel per filter comparing the baseline and to a template generation time scale of $\Delta t = 3\ \si{d}$. \label{appendixb:1}}
+				\sout{Histograms of sky area as a function of} 
+                \red{Per filter histograms showing the fraction of sky area with a given} number of visits per healpixel\sout{ per filter}\red{,} comparing the baseline \sout{and} to a template generation time scale of $\Delta t = 3\ \si{d}$. \label{appendixb:1}}
 		\end{figure}
 
 
