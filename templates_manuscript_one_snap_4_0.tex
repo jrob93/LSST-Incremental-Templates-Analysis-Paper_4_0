@@ -833,7 +833,7 @@ This effect is more extreme for the $g$ filter compared to the $r$ filter.
 				The panels show a zoomed-in cutout view (gnomic projection) of the sky map at the indicated locations in Figure \ref{fig:all_together_r_7d} for the $g$ filter and template generation timescale $\Delta t = 7 \si{d}$.
 				Each cutout is a size of $11.4 \times 11.4\ \si{degrees}$, i.e. approximately $50 \times 50$ patches.
 				For scale we indicate the extent of the \gls*{lsstcam} footprint which has a 3.5 degree field of view (i.e.\ $\sim15$ patches wide).
-The \textbf{top} panels show the number of visits for the \baseline and \sout{\textbf{middle}} \red{\textbf{bottom}} panels are the number of visits with templates for $\Delta t = 7\ \si{d}$.
+The \textbf{top} panels show the number of visits for the \baseline \red{baseline} and \sout{\textbf{middle}} \red{\textbf{bottom}} panels are the number of visits with templates for $\Delta t = 7\ \si{d}$.
 \sout{The \textbf{bottom} panels display the difference between the previous two rows.}
 				Note the different color scales for each panel indicating either the number of visits or difference in number of visits. 	
               The complete figure set (four images \red{each for the $g$ and $r$ filters}) is available in the online Journal. 
@@ -1107,7 +1107,7 @@ In Year 1 the \gls*{nes} receives $\sim75\%$ fewer visits than the \gls*{wfd}; t
 % This is because the smaller number of visits in the \gls*{nes} compared to the \gls*{wfd} means that losing $\geq4$ visits to templates is a greater proportional loss, causing a larger fraction of missed \gls*{sso} detections.
 \red{Furthermore, we have only considered \gls*{sso} discovery for visits with $\geq 90\%$ template coverage rather than for all healpixels with templates.
 This means that the level of coverage in the \gls*{nes} shown in Figures \ref{fig:template_skymaps_tscale-7} etc is actually much lower when only visits with $\geq 90\%$ template coverage are considered.
-Only a small number of visits in the \gls*{nes} meet the template requirements, which results in a strong decrease in the discovery metric for this region.
+Only a small number of visits in the \gls*{nes} meet the template requirements, which explains the strong decrease in the discovery metric for this region.
 }
 \sout{In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.}
 		\sout{As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.}
@@ -1276,7 +1276,7 @@ This could result in extremely rare scientific discoveries, such as a briefly ob
 		Further \rubinsim simulations are needed to examine if, and how, the Rubin scheduler can be tuned to maximize template production over the Year 1 without significantly impacting the 10-year outputs of the survey. 
 		% Strategies to boost the $g$ and $u$ template production rates in Year 1 should also be considered.
   It is important for the community and the \gls*{scoc} to explore possible modifications to the Year 1 observing cadence  that may significantly boost template production\sout{, such as earmarking a small amount of Year 1 observing time for template building}. 
-\sout{Other alternatives to boost} \red{For \gls*{sso} science in particular, possible methods of boosting} the number of observations in the \gls*{nes} \red{(and their impact on the survey science goals)} in Year 1 should be explored. 
+\sout{Other alternatives to boost} \red{For \gls*{sso} science in particular, possible methods of boosting} the number of observations in the \gls*{nes} in Year 1 should be explored \red{(whilst considering any impacts on the wider survey science goals)}. 
   \red{
   % First, now that commissioning observations have begun one can assess the template coverage it is possible to achieve prior to the survey start date.
   This might be achieved by reallocating an amount of Year 1 observing time to focus on template building.} 
@@ -1338,7 +1338,7 @@ J.K.P. provided guidance on the process of incremental template generation in th
 
 S.R.M and G.F. were involved in the early discussions that launched the analysis described in this work. They also provided feedback on the overall manuscript. 
 
-L.McG. provided a comparison of results at the healpixel and vist size scales.
+\red{L.McG. provided a comparison of results at the healpixel and visit size scales.}
 
 B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript. 
 
