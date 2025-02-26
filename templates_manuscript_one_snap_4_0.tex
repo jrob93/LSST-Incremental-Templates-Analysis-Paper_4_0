@@ -135,6 +135,9 @@ Helsinki, Finland}
 \author[0000-0001-7225-9271]{Henry H. Hsieh}
 \affiliation{Planetary Science Institute, 1700 East Fort Lowell Rd., Suite 106, Tucson, AZ 85719, USA}
 
+\author{\red{Lauren McGinley}}
+\affiliation{Astrophysics Research Centre, School of Mathematics and Physics, Queen's University Belfast, Belfast BT7 1NN, UK}
+
 \author[0000-0001-5930-2829]{Stephanie R. Merritt}
 \affiliation{Astrophysics Research Centre, School of Mathematics and Physics, Queen's University Belfast, Belfast BT7 1NN, UK}
 
@@ -324,7 +327,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
  
 	
 	The \gls*{lsst} data management pipelines divide the sky into \sout{an overlapping grid of} \red{a common pixel grid of overlapping} square 1.6$^{\circ} \times 1.6^{\circ}$ tiles, dubbed ``tracts," which are themselves subdivided into $7 \times 7$ ``patches" \citep[see Figure \ref{fig:tractsandpatches} and][]{2018PASJ...70S...5B, LDM-151}. 
-	It takes nine tracts to fully cover a single \gls*{lsstcam} pointing, which spans 3.5 deg$^2$. A single patch is the approximate size of an \gls*{lsstcam} CCD detector with dimensions of 13.7$^{\prime} \times 13.7^{\prime}$. A patch is comprised of 4100$\times$4100 pixels with a pixel scale of 0.2\arcsec per pixel, matching that of \gls*{lsstcam} \citep{2019ApJ...873..111I,LDM-151}, and each patch overlaps by 100 pixels on a side with their neighboring patches.  For a detailed overview of tracts and patches, we refer the reader to the summary paper for the Rubin Observatory's Data Preview 0.2/Dark Energy Science Collaboration (DESC) Data Challenge 2 (DC2) \citep{2021ApJS..253...31L}.  
+	It takes nine tracts to fully cover a single \gls*{lsstcam} pointing, which spans 3.5 deg$^2$. A single patch is the approximate size of an \gls*{lsstcam} CCD detector with dimensions of $13.7\arcmin \times 13.7\arcmin$. A patch is comprised of 4100$\times$4100 pixels with a pixel scale of 0.2\arcsec per pixel, matching that of \gls*{lsstcam} \citep{2019ApJ...873..111I,LDM-151}, and each patch overlaps by 100 pixels on a side with their neighboring patches.  For a detailed overview of tracts and patches, we refer the reader to the summary paper for the Rubin Observatory's Data Preview 0.2/Dark Energy Science Collaboration (DESC) Data Challenge 2 (DC2) \citep{2021ApJS..253...31L}.  
 	% https://www6.slac.stanford.edu/lsst
 	
 	\begin{figure}
@@ -334,7 +337,7 @@ These spatial and rotational dithers will lead to non-uniform coverage at sub-de
 		\caption{A cartoon schematic of tracts and patches in the \gls*{lsst} on-sky data management tessellation.
   The sky is divided into overlapping tracts each $1.6^{\circ} \times 1.6^{\circ}$. 
   Each tract is comprised of 49 overlapping patches. 
-  Patches are roughly the size of an individual \gls*{lsstcam} CCD detector with dimensions of $13.7^{\prime} \times 13.7^{\prime}$ . }
+  Patches are roughly the size of an individual \gls*{lsstcam} CCD detector with dimensions of $13.7\arcmin \times 13.7\arcmin$ . }
 		
 		\label{fig:tractsandpatches}
 	\end{figure}
@@ -1076,6 +1079,10 @@ Empty spaces indicate survey downtime when no visits were taken, e.g.\ scheduled
 		\subsection{Solar System Discovery \sout{and Color} Metrics}
 		\label{sec:sso_metrics}
 		    For those observations that have sufficient template coverage at the time of the exposure, we can analyse the Year 1 \gls*{sso} metrics, considering only visits that had a fractional template coverage of $\geq 90 \%$, as discussed in Section \ref{sec:template_coverage} above.	
+            \red{We note that up to this point our analysis has focused on healpixels with size comparable to LSST patches ($13.7\arcmin$) and now we are considering visits of size $3.5^\circ$.
+            We have made the conservative assumption that the \gls*{ssp} pipeline will only be effective for visits with a sufficient level of template coverage.
+            Cutting visits with $<90 \%$ template coverage will naturally remove many healpixels that did have templates; the skymaps shown previously (e.g.\ Figure \ref{fig:template_skymaps_tscale-7} etc) would be significantly sparser if replotted for only visits with $\geq90 \%$ template coverage rather than individual healpixels with templates.}
+            
 		Figure \ref{fig:temp_gen_discovery_metrics} shows the results for the discovery metric of objects with 3 pairs of detections over a 15 night period.
 		As described in Section \ref{sec:applying_maf_metrics}, we have considered a range of dynamical populations: \glspl*{mba}, \glspl*{neo}, \glspl*{pha}, \glspl*{tno} and \glspl*{occ}, with maximum perihelion distance of 5 au (\occrfive) and 20 au (\occrtwenty).
   The different orbits and physical properties of these distinct populations have a strong influence on \red{their} discovery \sout{and characterization}.
@@ -1098,6 +1105,10 @@ Accordingly the drop in discoveries is far greater for the Dec $\geq 0^{\circ}$ 
 This demonstrates that losses in the \gls*{nes} region are dominating the overall reduction in \gls*{sso} discoveries during Year 1, whereas the areas of the ecliptic sampled by the \gls*{wfd} are not as severely impacted.
 In Year 1 the \gls*{nes} receives $\sim75\%$ fewer visits than the \gls*{wfd}; this means that losing $\geq4$ visits to templates is a greater proportional loss, which results in a larger fraction of missed \gls*{sso} detections.
 % This is because the smaller number of visits in the \gls*{nes} compared to the \gls*{wfd} means that losing $\geq4$ visits to templates is a greater proportional loss, causing a larger fraction of missed \gls*{sso} detections.
+\red{Furthermore, we have only considered \gls*{sso} discovery for visits with $\geq 90\%$ template coverage rather than for all healpixels with templates.
+This means that the level of coverage in the \gls*{nes} shown in Figures \ref{fig:template_skymaps_tscale-7} etc is actually much lower when only visits with $\geq 90\%$ template coverage are considered.
+Only a small number of visits in the \gls*{nes} meet the template requirements, which results in a strong decrease in the discovery metric for this region.
+}
 \sout{In addition to discovery, we assessed the effects of template generation on the characterization of \glspl*{sso}, namely the metric describing the fraction of \glspl*{sso} in the sample for which at least 4 colors are obtained from the $grizy$ filters.}
 		\sout{As described in Section \ref{sec:applying_maf_metrics},  we only consider colors for the \glspl*{mba}, \gls*{neo} and \gls*{pha} populations.}
 		% \textbf{TNOs and OCCs do not get any colors when templates are considered.}
@@ -1268,11 +1279,13 @@ This could result in extremely rare scientific discoveries, such as a briefly ob
 \sout{Other alternatives to boost} \red{For \gls*{sso} science in particular, possible methods of boosting} the number of observations in the \gls*{nes} \red{(and their impact on the survey science goals)} in Year 1 should be explored. 
   \red{
   % First, now that commissioning observations have begun one can assess the template coverage it is possible to achieve prior to the survey start date.
-  This might be achieved by reallocating an amount of Year 1 observing time to focus on template building. 
-  For example, regions lacking template coverage (namely the \gls*{nes}) could be prioritised by the scheduler when observable, by taking time from regions with more than sufficient coverage (e.g.\ the \gls*{wfd}). 
-  Likewise, an amount of time could be shifted from well observed filters into other filters, such as $u$ and $g$. 
-  Furthermore, sacrificing some survey strategies during Year 1 could free up more time to build templates, e.g.\  the twilight survey\footnote{\red{A primary goal of the low solar elongation twilight survey is to discover \glspl*{sso} interior to Earth's orbit; as such its effectiveness in Year 1 will be limited if no templates are available.}} and triplet observations. }
-Closely following from this work, Schwamb et al.\ (in prep.) investigates \red{in more detail} possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.
+  This might be achieved by reallocating an amount of Year 1 observing time to focus on template building.} 
+ \red{For example, regions lacking template coverage (namely the \gls*{nes}) could be prioritised by the scheduler when observable, by taking time from regions with more than sufficient coverage (e.g.\ the \gls*{wfd}). 
+  Likewise, an amount of time could be shifted from well observed filters into other filters, such as $u$ and $g$.}
+  % Furthermore, sacrificing some survey strategies during Year 1 could free up more time to build templates, e.g.\  the twilight survey\footnote{\red{A primary goal of the low solar elongation twilight survey is to discover \glspl*{sso} interior to Earth's orbit; as such its effectiveness in Year 1 will be limited if no templates are available.}} and triplet observations.
+\red{Furthermore, one could consider ``borrowing'' \gls*{nes} visits from later years of the survey and pushing them into Year 1 instead.
+  This would improve the coverage of the \gls*{nes} in Year 1 at the expense of slightly reduced numbers of visits in later years.}
+\sout{Closely following from this work, Schwamb et al.\ (in prep.) investigates \red{in more detail} possible strategies for optimizing Year 1 \gls*{sso} science given the requirements of building templates.}
 
 It is vital that studies exploring the possible parameter space for incremental template generation within the \gls*{lsst} observing strategy and its impact on the \gls*{lsst} 10-year and Year 1 \maf metrics be completed before the start of Rubin on-sky commissioning with \gls*{lsstcam} (currently expected to start in the first half of 2025). 
 This will provide an opportunity to optimize the Year 1 observing strategy for alert production while giving the community time to initiate follow-up preparations for the start of \gls*{lsst} with the best picture of what Year 1 nightly outputs of the survey will look like.
@@ -1324,6 +1337,8 @@ W.C.F. and S.R.C. contributed to the development of the \sout{color} \maf metric
 J.K.P. provided guidance on the process of incremental template generation in the Rubin data management system and the incremental template generation strategy involved in Rubin DP 0.2/DESC DC2 . He also provided Figure \ref{fig:randompatch}.
 
 S.R.M and G.F. were involved in the early discussions that launched the analysis described in this work. They also provided feedback on the overall manuscript. 
+
+L.McG. provided a comparison of results at the healpixel and vist size scales.
 
 B.T.B., C.O.C, S.G, H.H.H and C.O. provided feedback on the overall manuscript. 
 
